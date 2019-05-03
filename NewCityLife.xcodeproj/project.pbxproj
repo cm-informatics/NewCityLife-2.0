@@ -17,6 +17,7 @@
 		AABB424C2262140C00B72C36 /* outline_assignment_black_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = AABB424B2262140C00B72C36 /* outline_assignment_black_18dp.png */; };
 		AABB4250226214BE00B72C36 /* MyReportsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB424F226214BE00B72C36 /* MyReportsTableViewController.swift */; };
 		AABB425222622D3B00B72C36 /* NewReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB425122622D3B00B72C36 /* NewReportTableViewController.swift */; };
+		AAF8A905227C7C5600D53629 /* TableViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF8A904227C7C5600D53629 /* TableViewService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		AABB424B2262140C00B72C36 /* outline_assignment_black_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = outline_assignment_black_18dp.png; sourceTree = "<group>"; };
 		AABB424F226214BE00B72C36 /* MyReportsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReportsTableViewController.swift; sourceTree = "<group>"; };
 		AABB425122622D3B00B72C36 /* NewReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReportTableViewController.swift; sourceTree = "<group>"; };
+		AAF8A904227C7C5600D53629 /* TableViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +71,7 @@
 				AABB425122622D3B00B72C36 /* NewReportTableViewController.swift */,
 				AABB424F226214BE00B72C36 /* MyReportsTableViewController.swift */,
 				AA2FAFCB2269B89F005C27C7 /* Report.swift */,
-				AA2FAFCD2269C5FB005C27C7 /* LocationService.swift */,
+				AAF8A903227C7C1C00D53629 /* Services */,
 				AABB42392262128600B72C36 /* Main.storyboard */,
 				AABB423C2262128700B72C36 /* Assets.xcassets */,
 				AABB423E2262128700B72C36 /* LaunchScreen.storyboard */,
@@ -93,6 +95,15 @@
 				AABB4249226213FA00B72C36 /* outline_file_copy_black_18dp.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		AAF8A903227C7C1C00D53629 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AA2FAFCD2269C5FB005C27C7 /* LocationService.swift */,
+				AAF8A904227C7C5600D53629 /* TableViewService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AABB4250226214BE00B72C36 /* MyReportsTableViewController.swift in Sources */,
+				AAF8A905227C7C5600D53629 /* TableViewService.swift in Sources */,
 				AABB42362262128600B72C36 /* AppDelegate.swift in Sources */,
 				AA2FAFCE2269C5FB005C27C7 /* LocationService.swift in Sources */,
 				AABB425222622D3B00B72C36 /* NewReportTableViewController.swift in Sources */,
