@@ -67,7 +67,7 @@ class TableViewService: UITableView, UITableViewDelegate, UITableViewDataSource 
         formatter.locale = Locale(identifier: "de_DE")
         formatter.dateStyle = .medium
         formatter.timeStyle = .medium
-        formatter.dateFormat = "dd.MMMM yyyy, HH:mm"
+        formatter.dateFormat = "d. MMMM yyyy, HH:mm"
         
         
         return formatter.string(from: Date())

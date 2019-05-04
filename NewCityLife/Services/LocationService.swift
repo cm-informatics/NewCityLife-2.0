@@ -11,12 +11,7 @@ import CoreLocation
 
 class LocationService: NSObject, CLLocationManagerDelegate {
     
-    //let locationManager: CLLocationManager
-    let locationManager = CLLocationManager()
-    
-    /*func getCurrentLocation() {
-        
-        locationManager.delegate = self
+    func getCurrentLocation(locationManager: CLLocationManager) {
         
         if CLLocationManager.locationServicesEnabled() {
             locationManager.requestWhenInUseAuthorization()
@@ -29,12 +24,6 @@ class LocationService: NSObject, CLLocationManagerDelegate {
             print("Not allowed")
         }
     }
- */
-    
-    /*init(locationManager: CLLocationManager = CLLocationManager()) {
-        self.locationManager = locationManager
-    }
- */
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         manager.stopUpdatingLocation()

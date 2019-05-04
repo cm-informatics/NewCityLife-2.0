@@ -26,25 +26,10 @@ class NewReportTableViewController: UITableViewController{
         tableView.delegate = tableViewService
         tableView.dataSource = tableViewService
 
-        
         locationManager.delegate = locationService
-        //locationManager.delegate = self
         
-        //LocationService().getCurrentLocation()
+        LocationService().getCurrentLocation(locationManager: locationManager)
         
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.requestWhenInUseAuthorization()
-            locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-            locationManager.startUpdatingLocation()
-            print("Go...")
-            
-        }
-        else {
-            print("Not allowed")
-        }
-        
-    
-
     /*
     // MARK: - Navigation
 
@@ -54,21 +39,6 @@ class NewReportTableViewController: UITableViewController{
         // Pass the selected object to the new view controller.
     }
     */
-        
-        /*
-        func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-            manager.stopUpdatingLocation()
-            
-            print("Location is: \(locations[0].coordinate.latitude)")
-            print("Location is: \(locations[0].coordinate.longitude)")
-        }
-        
-        func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-            print("\(#function)")
-            manager.stopUpdatingLocation()
-            print(error)
-        }
- */
 
     }
 }
