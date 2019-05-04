@@ -9,9 +9,11 @@
 import UIKit
 import CoreLocation
 
-class NewReportTableViewController: UITableViewController, CLLocationManagerDelegate{
+class NewReportTableViewController: UITableViewController{
 
-    let locationManager = LocationService()
+    let locationManager = CLLocationManager()
+    let locationService = LocationService()
+    
     let tableViewService = TableViewService()
     let headerTitle = ["Bild", " Kategorie", "Kommentar", "Standort", "Datum"]
     
@@ -23,11 +25,12 @@ class NewReportTableViewController: UITableViewController, CLLocationManagerDele
         
         tableView.delegate = tableViewService
         tableView.dataSource = tableViewService
-        
 
-        LocationService().getCurrentLocation()
         
-        /*locationManager.delegate = self
+        locationManager.delegate = locationService
+        //locationManager.delegate = self
+        
+        //LocationService().getCurrentLocation()
         
         if CLLocationManager.locationServicesEnabled() {
             locationManager.requestWhenInUseAuthorization()
@@ -40,8 +43,7 @@ class NewReportTableViewController: UITableViewController, CLLocationManagerDele
             print("Not allowed")
         }
         
-    }
- */
+    
 
     /*
     // MARK: - Navigation
@@ -52,6 +54,21 @@ class NewReportTableViewController: UITableViewController, CLLocationManagerDele
         // Pass the selected object to the new view controller.
     }
     */
+        
+        /*
+        func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            manager.stopUpdatingLocation()
+            
+            print("Location is: \(locations[0].coordinate.latitude)")
+            print("Location is: \(locations[0].coordinate.longitude)")
+        }
+        
+        func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+            print("\(#function)")
+            manager.stopUpdatingLocation()
+            print(error)
+        }
+ */
 
     }
 }

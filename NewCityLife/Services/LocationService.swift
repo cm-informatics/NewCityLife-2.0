@@ -11,9 +11,10 @@ import CoreLocation
 
 class LocationService: NSObject, CLLocationManagerDelegate {
     
-    let locationManager: CLLocationManager
+    //let locationManager: CLLocationManager
+    let locationManager = CLLocationManager()
     
-     func getCurrentLocation() {
+    /*func getCurrentLocation() {
         
         locationManager.delegate = self
         
@@ -28,10 +29,12 @@ class LocationService: NSObject, CLLocationManagerDelegate {
             print("Not allowed")
         }
     }
+ */
     
-    init(locationManager: CLLocationManager = CLLocationManager()) {
+    /*init(locationManager: CLLocationManager = CLLocationManager()) {
         self.locationManager = locationManager
     }
+ */
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         manager.stopUpdatingLocation()
@@ -41,6 +44,7 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("\(#function)")
         manager.stopUpdatingLocation()
         print(error)
     }
