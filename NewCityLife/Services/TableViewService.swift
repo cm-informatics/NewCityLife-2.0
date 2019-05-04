@@ -12,7 +12,6 @@ class TableViewService: UITableView, UITableViewDelegate, UITableViewDataSource 
     
     var headerArray = [String]()
     
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 5
     }

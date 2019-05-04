@@ -9,14 +9,13 @@
 import UIKit
 import CoreLocation
 
-class NewReportTableViewController: UITableViewController{
+class NewReportTableViewController: UITableViewController, LocationObserver{
 
     let locationManager = CLLocationManager()
     let locationService = LocationService()
     
     let tableViewService = TableViewService()
     let headerTitle = ["Bild", " Kategorie", "Kommentar", "Standort", "Datum"]
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,17 +27,25 @@ class NewReportTableViewController: UITableViewController{
 
         locationManager.delegate = locationService
         
-        LocationService().getCurrentLocation(locationManager: locationManager)
-        
+        locationService.getCurrentLocation(locationManager: locationManager)
+        locationService.register(observer: self)
+        //Hier versuchen den TableViewService anzumelden
+        //locationService.register(observer: tableViewService)
+    }
+    
+    // MARK: - LocationObserver
+    func locationChanged(latitude: Double, longitude: Double) {
+        print("Latitude is: \(latitude)")
+        print("Longitude is: \(longitude)")
+    }
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    }
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
 }

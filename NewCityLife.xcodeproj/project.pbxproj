@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AA2FAFCC2269B89F005C27C7 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FAFCB2269B89F005C27C7 /* Report.swift */; };
 		AA2FAFCE2269C5FB005C27C7 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FAFCD2269C5FB005C27C7 /* LocationService.swift */; };
+		AA318951227DC38C0079FF8A /* LocationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA318950227DC38C0079FF8A /* LocationObserver.swift */; };
 		AABB42362262128600B72C36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB42352262128600B72C36 /* AppDelegate.swift */; };
 		AABB423B2262128600B72C36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AABB42392262128600B72C36 /* Main.storyboard */; };
 		AABB423D2262128700B72C36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AABB423C2262128700B72C36 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		AA2FAFCB2269B89F005C27C7 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		AA2FAFCD2269C5FB005C27C7 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		AA318950227DC38C0079FF8A /* LocationObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationObserver.swift; sourceTree = "<group>"; };
 		AABB42322262128600B72C36 /* NewCityLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewCityLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AABB42352262128600B72C36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AABB423A2262128600B72C36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			children = (
 				AA2FAFCD2269C5FB005C27C7 /* LocationService.swift */,
 				AAF8A904227C7C5600D53629 /* TableViewService.swift */,
+				AA318950227DC38C0079FF8A /* LocationObserver.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				AAF8A905227C7C5600D53629 /* TableViewService.swift in Sources */,
 				AABB42362262128600B72C36 /* AppDelegate.swift in Sources */,
 				AA2FAFCE2269C5FB005C27C7 /* LocationService.swift in Sources */,
+				AA318951227DC38C0079FF8A /* LocationObserver.swift in Sources */,
 				AABB425222622D3B00B72C36 /* NewReportTableViewController.swift in Sources */,
 				AA2FAFCC2269B89F005C27C7 /* Report.swift in Sources */,
 			);
