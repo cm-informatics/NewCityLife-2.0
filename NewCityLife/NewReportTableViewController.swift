@@ -23,8 +23,9 @@ class NewReportTableViewController: UITableViewController, CLLocationManagerDele
         
         tableView.delegate = tableViewService
         tableView.dataSource = tableViewService
+        
 
-        //LocationService().getCurrentLocation()
+        LocationService().getCurrentLocation()
         
         /*locationManager.delegate = self
         
@@ -38,42 +39,8 @@ class NewReportTableViewController: UITableViewController, CLLocationManagerDele
         else {
             print("Not allowed")
         }
- */
         
     }
-
-    // MARK: - Table view data source
-
-   /* override func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "newReportCell", for: indexPath)
-
-        switch indexPath.section {
-        case 0:
-            cell.textLabel?.text = "Bild"
-        case 1:
-            cell.textLabel?.text = "Kategorie"
-        case 2:
-            cell.textLabel?.text = "Kommentar"
-        case 3:
-            cell.textLabel?.text = "Standort"
-        case 4:
-            cell.textLabel?.text = getDate()
-        default:
-            cell.textLabel?.text = ""
-        }
-
-        return cell
-    }
-    
-    
  */
 
     /*
@@ -85,17 +52,6 @@ class NewReportTableViewController: UITableViewController, CLLocationManagerDele
         // Pass the selected object to the new view controller.
     }
     */
-    
-    func getDate() -> String {
-        let formatter = DateFormatter()
-        formatter.timeZone = TimeZone.current
-        formatter.locale = Locale(identifier: "de_DE")
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .medium
-        formatter.dateFormat = "dd.MMMM yyyy, HH:mm"
-        
-        
-        return formatter.string(from: Date())
-    }
 
+    }
 }

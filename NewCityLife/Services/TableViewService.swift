@@ -26,6 +26,21 @@ class TableViewService: UITableView, UITableViewDelegate, UITableViewDataSource 
         let cell = tableView.dequeueReusableCell(withIdentifier: "newReportCell", for: indexPath)
         cell.textLabel?.text = headerArray[indexPath.section]
         
+        switch indexPath.section {
+        case 0:
+            cell.textLabel?.text = headerArray[indexPath.row]
+        case 1:
+            cell.textLabel?.text = headerArray[indexPath.row]
+        case 2:
+            cell.textLabel?.text = headerArray[indexPath.row]
+        case 3:
+            cell.textLabel?.text = headerArray[indexPath.row]
+        case 4:
+            cell.textLabel?.text = getDate()
+        default:
+            cell.textLabel?.text = ""
+        }
+        
         return cell
     }
     
@@ -45,4 +60,17 @@ class TableViewService: UITableView, UITableViewDelegate, UITableViewDataSource 
             return ""
         }
     }
+    
+    private func getDate() -> String {
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone.current
+        formatter.locale = Locale(identifier: "de_DE")
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .medium
+        formatter.dateFormat = "dd.MMMM yyyy, HH:mm"
+        
+        
+        return formatter.string(from: Date())
+    }
+    
 }
