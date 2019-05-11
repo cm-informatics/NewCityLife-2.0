@@ -10,6 +10,10 @@ import UIKit
 import CoreLocation
 
 class NewReportTableViewController: UITableViewController, LocationObserver{
+    func locationUpdateDidFail(error: Error) {
+        print("Error")
+    }
+    
 
     let locationManager = CLLocationManager()
     let locationService = LocationService()
@@ -29,8 +33,14 @@ class NewReportTableViewController: UITableViewController, LocationObserver{
         
         locationService.getCurrentLocation(locationManager: locationManager)
         locationService.register(observer: self)
-        //Hier versuchen den TableViewService anzumelden
-        //locationService.register(observer: tableViewService)
+        
+        //Hier melde ich zusätzlich den TableViewService an, ist vielleicht besser als self
+        locationService.register(observer: tableViewService)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
     }
     
     // MARK: - LocationObserver

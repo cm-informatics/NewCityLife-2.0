@@ -13,6 +13,9 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     
     var observerList = [LocationObserver]()
     
+    var lon: CLLocationDegrees? = nil
+    var lat: CLLocationDegrees? = nil
+    var error: Error?
     
     func getCurrentLocation(locationManager: CLLocationManager) {
         
@@ -37,21 +40,35 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         manager.stopUpdatingLocation()
         
-        let latitude = locations[0].coordinate.latitude
+        /*let latitude = locations[0].coordinate.latitude
         let longitude = locations[0].coordinate.longitude
+ */
+        lat = locations[0].coordinate.latitude
+        lon = locations[0].coordinate.longitude
         
-        notifyObservers(latitude: latitude, longitude: longitude)
+        
+        //notifyObservers(latitude: latitude, longitude: longitude)
+        notifyObservers()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("\(#function)")
+        print("Error: \(error.localizedDescription)")
+        self.error = error
         manager.stopUpdatingLocation()
-        print(error)
+        notifyObservers()
     }
     
-    func notifyObservers(latitude: Double, longitude: Double) {
-        for item in observerList {
-            item.locationChanged(latitude: latitude, longitude: longitude)
+    func notifyObservers() {
+        
+        if let latitude = lat, let longitude = lon {
+            for item in observerList {
+                item.locationChanged(latitude: latitude, longitude: longitude)
+            }
+        }
+        else {
+            for item in observerList {
+                item.locationUpdateDidFail(error: error!)
+            }
         }
     }
 }

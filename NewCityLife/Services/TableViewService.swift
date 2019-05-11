@@ -8,9 +8,9 @@
 
 import UIKit
 
-class TableViewService: UITableView, UITableViewDelegate, UITableViewDataSource {
-    
+class TableViewService: /*UITableView,*/NSObject, UITableViewDelegate, UITableViewDataSource, LocationObserver {
     var headerArray = [String]()
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 5
@@ -72,4 +72,16 @@ class TableViewService: UITableView, UITableViewDelegate, UITableViewDataSource 
         return formatter.string(from: Date())
     }
     
+    //MARK: - LocationObserver
+    
+    func locationUpdateDidFail(error: Error) {
+        print("TBL error: \(error.localizedDescription)")
+    }
+    
+    func locationChanged(latitude: Double, longitude: Double) {
+        print("TBL Latitude is: \(latitude)")
+        print("TBL Longitude is: \(longitude)")
+        
+        headerArray[0] = "\(latitude)"
+    }
 }

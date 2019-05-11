@@ -10,4 +10,5 @@ import Foundation
 
 protocol LocationObserver {
     func locationChanged(latitude: Double, longitude: Double)
+    func locationUpdateDidFail(error: Error)
 }
