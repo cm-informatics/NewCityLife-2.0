@@ -10,11 +10,7 @@ import UIKit
 import CoreLocation
 
 class NewReportTableViewController: UITableViewController, LocationObserver{
-    func locationUpdateDidFail(error: Error) {
-        print("Error")
-    }
     
-
     let locationManager = CLLocationManager()
     let locationService = LocationService()
     
@@ -45,8 +41,13 @@ class NewReportTableViewController: UITableViewController, LocationObserver{
     
     // MARK: - LocationObserver
     func locationChanged(latitude: Double, longitude: Double) {
-        print("Latitude is: \(latitude)")
+        /*print("Latitude is: \(latitude)")
         print("Longitude is: \(longitude)")
+ */
+    }
+    
+    func locationUpdateDidFail(error: Error) {
+        print("Error")
     }
     
     /*

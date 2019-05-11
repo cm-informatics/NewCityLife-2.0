@@ -8,8 +8,9 @@
 
 import UIKit
 
-class TableViewService: /*UITableView,*/NSObject, UITableViewDelegate, UITableViewDataSource, LocationObserver {
+class TableViewService: UITableView, UITableViewDelegate, UITableViewDataSource, LocationObserver {
     var headerArray = [String]()
+    var contentData = ["", "", "", "", ""]
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -23,17 +24,17 @@ class TableViewService: /*UITableView,*/NSObject, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "newReportCell", for: indexPath)
-        cell.textLabel?.text = headerArray[indexPath.section]
+        //cell.textLabel?.text = headerArray[indexPath.section]
         
         switch indexPath.section {
         case 0:
-            cell.textLabel?.text = headerArray[indexPath.row]
+            cell.textLabel?.text = contentData[indexPath.section]
         case 1:
-            cell.textLabel?.text = headerArray[indexPath.row]
+            cell.textLabel?.text = contentData[indexPath.section]
         case 2:
-            cell.textLabel?.text = headerArray[indexPath.row]
+            cell.textLabel?.text = contentData[indexPath.section]
         case 3:
-            cell.textLabel?.text = headerArray[indexPath.row]
+            cell.textLabel?.text = contentData[indexPath.section]
         case 4:
             cell.textLabel?.text = getDate()
         default:
@@ -60,16 +61,11 @@ class TableViewService: /*UITableView,*/NSObject, UITableViewDelegate, UITableVi
         }
     }
     
-    private func getDate() -> String {
-        let formatter = DateFormatter()
-        formatter.timeZone = TimeZone.current
-        formatter.locale = Locale(identifier: "de_DE")
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .medium
-        formatter.dateFormat = "d. MMMM yyyy, HH:mm"
-        
-        
-        return formatter.string(from: Date())
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 110
+        }
+        return self.rowHeight
     }
     
     //MARK: - LocationObserver
@@ -82,6 +78,19 @@ class TableViewService: /*UITableView,*/NSObject, UITableViewDelegate, UITableVi
         print("TBL Latitude is: \(latitude)")
         print("TBL Longitude is: \(longitude)")
         
-        headerArray[0] = "\(latitude)"
+        contentData[3] = "\(latitude), \(longitude)"
+    }
+    
+    //MARK: - Internal func
+    
+    private func getDate() -> String {
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone.current
+        formatter.locale = Locale(identifier: "de_DE")
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .medium
+        formatter.dateFormat = "d. MMMM yyyy, HH:mm"
+        
+        return formatter.string(from: Date())
     }
 }
