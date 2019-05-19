@@ -28,7 +28,11 @@ class TableViewService: UITableView, UITableViewDelegate, UITableViewDataSource,
         
         switch indexPath.section {
         case 0:
-            cell.textLabel?.text = contentData[indexPath.section]
+            let cell = Bundle.main.loadNibNamed("ImageTableViewCell", owner: NewReportTableViewController(), options: nil)?.first as! ImageTableViewCell
+            cell.imageCellImageView.image = UIImage(named: "outline_file_copy_black_18dp")
+            cell.imageCellLabel.text = "Hello World!"
+            print("Test")
+            return cell
         case 1:
             cell.textLabel?.text = contentData[indexPath.section]
         case 2:

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA2AA2E922870516001B6EC5 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2AA2E722870516001B6EC5 /* ImageTableViewCell.swift */; };
+		AA2AA2EA22870516001B6EC5 /* ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA2AA2E822870516001B6EC5 /* ImageTableViewCell.xib */; };
 		AA2FAFCC2269B89F005C27C7 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FAFCB2269B89F005C27C7 /* Report.swift */; };
 		AA2FAFCE2269C5FB005C27C7 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FAFCD2269C5FB005C27C7 /* LocationService.swift */; };
 		AA318951227DC38C0079FF8A /* LocationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA318950227DC38C0079FF8A /* LocationObserver.swift */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA2AA2E722870516001B6EC5 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
+		AA2AA2E822870516001B6EC5 /* ImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTableViewCell.xib; sourceTree = "<group>"; };
 		AA2FAFCB2269B89F005C27C7 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		AA2FAFCD2269C5FB005C27C7 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		AA318950227DC38C0079FF8A /* LocationObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationObserver.swift; sourceTree = "<group>"; };
@@ -73,6 +77,8 @@
 				AABB425122622D3B00B72C36 /* NewReportTableViewController.swift */,
 				AABB424F226214BE00B72C36 /* MyReportsTableViewController.swift */,
 				AA2FAFCB2269B89F005C27C7 /* Report.swift */,
+				AA2AA2E722870516001B6EC5 /* ImageTableViewCell.swift */,
+				AA2AA2E822870516001B6EC5 /* ImageTableViewCell.xib */,
 				AAF8A903227C7C1C00D53629 /* Services */,
 				AABB42392262128600B72C36 /* Main.storyboard */,
 				AABB423C2262128700B72C36 /* Assets.xcassets */,
@@ -170,6 +176,7 @@
 				AABB424C2262140C00B72C36 /* outline_assignment_black_18dp.png in Resources */,
 				AABB424A226213FA00B72C36 /* outline_file_copy_black_18dp.png in Resources */,
 				AABB42402262128700B72C36 /* LaunchScreen.storyboard in Resources */,
+				AA2AA2EA22870516001B6EC5 /* ImageTableViewCell.xib in Resources */,
 				AABB423D2262128700B72C36 /* Assets.xcassets in Resources */,
 				AABB423B2262128600B72C36 /* Main.storyboard in Resources */,
 			);
@@ -183,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AABB4250226214BE00B72C36 /* MyReportsTableViewController.swift in Sources */,
+				AA2AA2E922870516001B6EC5 /* ImageTableViewCell.swift in Sources */,
 				AAF8A905227C7C5600D53629 /* TableViewService.swift in Sources */,
 				AABB42362262128600B72C36 /* AppDelegate.swift in Sources */,
 				AA2FAFCE2269C5FB005C27C7 /* LocationService.swift in Sources */,
