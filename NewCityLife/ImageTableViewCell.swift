@@ -12,7 +12,8 @@ class ImageTableViewCell: UITableViewCell {
 
     @IBOutlet weak var imageCellImageView: UIImageView!
     @IBOutlet weak var imageCellLabel: UILabel!
-    /*override func awakeFromNib() {
+    
+   /* override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
@@ -23,5 +24,6 @@ class ImageTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
  */
+ 
     
 }

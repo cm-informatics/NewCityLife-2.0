@@ -23,15 +23,29 @@ class TableViewService: UITableView, UITableViewDelegate, UITableViewDataSource,
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "newReportCell", for: indexPath)
-        //cell.textLabel?.text = headerArray[indexPath.section]
+        //let cell = tableView.dequeueReusableCell(withIdentifier: "newReportCell", for: indexPath)
+        //var cell = UITableViewCell()
         
-        switch indexPath.section {
+        if indexPath.section == 0 {
+            let cell = Bundle.main.loadNibNamed("ImageTableViewCell", owner: nil, options: nil)?.first as! ImageTableViewCell
+            cell.imageCellLabel.text = "Hello World"
+            return cell
+        }
+        else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "newReportCell", for: indexPath)
+            cell.textLabel?.text = "test"
+            
+            return cell
+        }
+        
+        /*switch indexPath.section {
         case 0:
-            let cell = Bundle.main.loadNibNamed("ImageTableViewCell", owner: NewReportTableViewController(), options: nil)?.first as! ImageTableViewCell
+            cell = Bundle.main.loadNibNamed("ImageTableViewCell", owner: nil, options: nil)?.first as! ImageTableViewCell
+            //let cell = dequeueReusableCell(withIdentifier: "imageCell", for: indexPath) as! ImageTableViewCell
+            print("Custom")
             cell.imageCellImageView.image = UIImage(named: "outline_file_copy_black_18dp")
             cell.imageCellLabel.text = "Hello World!"
-            print("Test")
+
             return cell
         case 1:
             cell.textLabel?.text = contentData[indexPath.section]
@@ -43,26 +57,14 @@ class TableViewService: UITableView, UITableViewDelegate, UITableViewDataSource,
             cell.textLabel?.text = getDate()
         default:
             cell.textLabel?.text = ""
-        }
+
+        }*/
         
-        return cell
+        //return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 0:
-            return headerArray[section]
-        case 1:
-            return headerArray[section]
-        case 2:
-            return headerArray[section]
-        case 3:
-            return headerArray[section]
-        case 4:
-            return headerArray[section]
-        default:
-            return ""
-        }
+        return headerArray[section]
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

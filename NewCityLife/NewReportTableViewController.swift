@@ -32,6 +32,10 @@ class NewReportTableViewController: UITableViewController, LocationObserver{
         
         //Hier melde ich zusätzlich den TableViewService an, ist vielleicht besser als self
         locationService.register(observer: tableViewService)
+        
+        /*let nib = UINib(nibName: "ImageTableViewCell", bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: "imageCell")
+ */
     }
     
     override func viewDidAppear(_ animated: Bool) {
