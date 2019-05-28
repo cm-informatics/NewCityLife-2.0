@@ -12,6 +12,7 @@ class TableViewService: UITableView, UITableViewDelegate, UITableViewDataSource,
     var headerArray = [String]()
     var contentData = ["", "", "", "", ""]
     
+    //MARK: - TableView DataSource
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 5
@@ -23,45 +24,30 @@ class TableViewService: UITableView, UITableViewDelegate, UITableViewDataSource,
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        //let cell = tableView.dequeueReusableCell(withIdentifier: "newReportCell", for: indexPath)
-        //var cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "newReportCell")
         
-        if indexPath.section == 0 {
-            let cell = Bundle.main.loadNibNamed("ImageTableViewCell", owner: nil, options: nil)?.first as! ImageTableViewCell
-            cell.imageCellLabel.text = "Hello World"
-            return cell
-        }
-        else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "newReportCell", for: indexPath)
-            cell.textLabel?.text = "test"
-            
-            return cell
-        }
-        
-        /*switch indexPath.section {
+        switch indexPath.section {
         case 0:
-            cell = Bundle.main.loadNibNamed("ImageTableViewCell", owner: nil, options: nil)?.first as! ImageTableViewCell
-            //let cell = dequeueReusableCell(withIdentifier: "imageCell", for: indexPath) as! ImageTableViewCell
-            print("Custom")
-            cell.imageCellImageView.image = UIImage(named: "outline_file_copy_black_18dp")
-            cell.imageCellLabel.text = "Hello World!"
-
-            return cell
+            let customCell = tableView.dequeueReusableCell(withIdentifier: "imageCell", for: indexPath) as! ImageTableViewCell
+            customCell.imageCellLabel.text = "This is it"
+            return customCell
         case 1:
-            cell.textLabel?.text = contentData[indexPath.section]
+            cell!.textLabel?.text = contentData[indexPath.section]
         case 2:
-            cell.textLabel?.text = contentData[indexPath.section]
+            cell!.textLabel?.text = contentData[indexPath.section]
         case 3:
-            cell.textLabel?.text = contentData[indexPath.section]
+            cell!.textLabel?.text = contentData[indexPath.section]
         case 4:
-            cell.textLabel?.text = getDate()
+            cell!.textLabel?.text = getDate()
+ 
         default:
-            cell.textLabel?.text = ""
+            cell!.textLabel?.text = ""
 
-        }*/
-        
-        //return cell
+        }
+        return cell!
     }
+    
+    //MARK: - TableView Delegate
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return headerArray[section]
