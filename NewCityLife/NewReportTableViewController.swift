@@ -38,29 +38,25 @@ class NewReportTableViewController: UITableViewController, LocationObserver{
         self.tableView.register(nib, forCellReuseIdentifier: "imageCell")
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        tableView.reloadData()
-    }
-    
     // MARK: - LocationObserver
     func locationChanged(latitude: Double, longitude: Double) {
-        /*print("Latitude is: \(latitude)")
+        print("Latitude is: \(latitude)")
         print("Longitude is: \(longitude)")
- */
+        tableView.reloadData()
     }
     
     func locationUpdateDidFail(error: Error) {
         print("Error")
     }
     
-    /*
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destination.
      // Pass the selected object to the new view controller.
+        if segue.identifier == "catSegue" {
+            print("cat")
+        }
      }
-     */
 }

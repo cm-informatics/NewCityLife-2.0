@@ -19,8 +19,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="313" height="109.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="outline_assignment_black_18dp.png" translatesAutoresizingMaskIntoConstraints="NO" id="a71-dT-BF8">
-                        <rect key="frame" x="220" y="16" width="77" height="77.5"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image" translatesAutoresizingMaskIntoConstraints="NO" id="a71-dT-BF8">
+                        <rect key="frame" x="220" y="8" width="77" height="93.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="77" id="wU5-j1-j9L"/>
                         </constraints>
@@ -34,8 +34,8 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="a71-dT-BF8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="bSd-RK-hiH"/>
-                    <constraint firstAttribute="bottom" secondItem="a71-dT-BF8" secondAttribute="bottom" constant="16" id="cv7-SJ-WYP"/>
+                    <constraint firstItem="a71-dT-BF8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="bSd-RK-hiH"/>
+                    <constraint firstAttribute="bottom" secondItem="a71-dT-BF8" secondAttribute="bottom" constant="8" id="cv7-SJ-WYP"/>
                     <constraint firstAttribute="trailing" secondItem="a71-dT-BF8" secondAttribute="trailing" constant="16" id="lZ7-OZ-qKn"/>
                 </constraints>
             </tableViewCellContentView>
@@ -48,6 +48,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="outline_assignment_black_18dp.png" width="36" height="36"/>
+        <image name="no_image" width="225" height="225"/>
     </resources>
 </document>

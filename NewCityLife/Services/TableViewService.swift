@@ -8,9 +8,9 @@
 
 import UIKit
 
-class TableViewService: UITableView, UITableViewDelegate, UITableViewDataSource, LocationObserver {
+class TableViewService: NSObject, UITableViewDelegate, UITableViewDataSource, LocationObserver {
     var headerArray = [String]()
-    var contentData = ["", "", "", "", ""]
+    var contentData = ["Kein Foto ausgewählt", "Bitte wählen...", "Kommentar schreiben...", "", ""]
     
     //MARK: - TableView DataSource
     
@@ -24,27 +24,36 @@ class TableViewService: UITableView, UITableViewDelegate, UITableViewDataSource,
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "newReportCell")
+        //let cell = tableView.dequeueReusableCell(withIdentifier: "newReportCell")
         
         switch indexPath.section {
         case 0:
             let customCell = tableView.dequeueReusableCell(withIdentifier: "imageCell", for: indexPath) as! ImageTableViewCell
-            customCell.imageCellLabel.text = "This is it"
+            customCell.imageCellLabel.text = contentData[indexPath.row]
             return customCell
         case 1:
-            cell!.textLabel?.text = contentData[indexPath.section]
+            let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
+            cell.textLabel?.text = contentData[indexPath.section]
+            return cell
         case 2:
-            cell!.textLabel?.text = contentData[indexPath.section]
+            let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath)
+            cell.textLabel?.text = contentData[indexPath.section]
+            return cell
         case 3:
-            cell!.textLabel?.text = contentData[indexPath.section]
+            let cell = tableView.dequeueReusableCell(withIdentifier: "locationCell", for: indexPath)
+            cell.textLabel?.text = contentData[indexPath.section]
+            return cell
         case 4:
-            cell!.textLabel?.text = getDate()
+            let cell = tableView.dequeueReusableCell(withIdentifier: "dateCell", for: indexPath)
+            cell.textLabel?.text = getDate()
+            return cell
  
         default:
-            cell!.textLabel?.text = ""
+            let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
+            cell.textLabel?.text = contentData[indexPath.section]
+            return cell
 
         }
-        return cell!
     }
     
     //MARK: - TableView Delegate
@@ -57,7 +66,11 @@ class TableViewService: UITableView, UITableViewDelegate, UITableViewDataSource,
         if indexPath.section == 0 {
             return 110
         }
-        return self.rowHeight
+        return tableView.rowHeight
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("\(indexPath)")
     }
     
     //MARK: - LocationObserver

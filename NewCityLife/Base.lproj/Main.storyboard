@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -45,14 +46,71 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="newReportCell" textLabel="9Ek-rZ-RAF" style="IBUITableViewCellStyleDefault" id="gjq-dB-gPc">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="categoryCell" textLabel="9Ek-rZ-RAF" style="IBUITableViewCellStyleDefault" id="gjq-dB-gPc">
                                 <rect key="frame" x="0.0" y="165.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gjq-dB-gPc" id="SQU-0W-YvT">
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9Ek-rZ-RAF">
+                                            <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="qb4-OE-kY1" kind="showDetail" id="OGL-yl-bhQ"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="commentCell" textLabel="G4c-qV-aR7" style="IBUITableViewCellStyleDefault" id="DjI-4f-zS5">
+                                <rect key="frame" x="0.0" y="209.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DjI-4f-zS5" id="ffE-qM-6Rd">
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="G4c-qV-aR7">
+                                            <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="v4V-rX-76z" kind="showDetail" id="tMD-rt-ECu"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="locationCell" textLabel="mgd-Ht-X6c" style="IBUITableViewCellStyleDefault" id="TCq-NU-A9g">
+                                <rect key="frame" x="0.0" y="253.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TCq-NU-A9g" id="SME-58-VxH">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9Ek-rZ-RAF">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mgd-Ht-X6c">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dateCell" textLabel="v9s-4g-c8O" style="IBUITableViewCellStyleDefault" id="Afb-Po-CrT">
+                                <rect key="frame" x="0.0" y="297.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Afb-Po-CrT" id="F8I-eA-0Wm">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="v9s-4g-c8O">
                                             <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -74,6 +132,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kq2-Ud-f6v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1972" y="-149.77511244377811"/>
+        </scene>
+        <!--Kategorie-->
+        <scene sceneID="dqs-8M-4SG">
+            <objects>
+                <tableViewController title="Kategorie" id="EQT-Q4-gqN" customClass="CategoryTableViewController" customModule="NewCityLife" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="D45-j4-Ktx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Ilv-Bh-xIf">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ilv-Bh-xIf" id="3Mn-NH-aTn">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="EQT-Q4-gqN" id="sZK-4d-Cpc"/>
+                            <outlet property="delegate" destination="EQT-Q4-gqN" id="jpO-kU-OJ7"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Kategorie" id="tKc-8h-hkw">
+                        <barButtonItem key="leftBarButtonItem" title="Abbrechen" id="SkV-Cp-nAl">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="EQT-Q4-gqN" id="cgx-IE-RoE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O00-4w-g0v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3863.1999999999998" y="-238.83058470764618"/>
         </scene>
         <!--Meine Berichte-->
         <scene sceneID="fXA-jN-sq5">
@@ -104,11 +197,26 @@
             </objects>
             <point key="canvasLocation" x="1972" y="539.28035982008998"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Ge6-88-bP6">
+            <objects>
+                <viewController id="v4V-rX-76z" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GTE-od-31O">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="WgI-Cv-rdI"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bQ6-jQ-b75" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2951" y="427"/>
+        </scene>
         <!--Meine Berichte-->
         <scene sceneID="a3O-D1-Qgi">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="L8T-gi-vB7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Meine Berichte" image="outline_file_copy_black_18dp.png" id="tQw-xR-HLX"/>
+                    <tabBarItem key="tabBarItem" title="Meine Berichte" image="ncl_myReports" id="tQw-xR-HLX"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IsE-Do-HTr">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -127,7 +235,7 @@
         <scene sceneID="hWZ-PQ-u4a">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3ya-bb-GYe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Neuer Bericht" image="outline_assignment_black_18dp.png" id="B8u-4c-ihB"/>
+                    <tabBarItem key="tabBarItem" title="Neuer Bericht" image="ncl_newReport" id="B8u-4c-ihB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dwf-rf-Nfy">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -142,9 +250,27 @@
             </objects>
             <point key="canvasLocation" x="1032.8" y="-150.67466266866569"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bpH-Da-kcl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qb4-OE-kY1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ynQ-2e-D49">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="EQT-Q4-gqN" kind="relationship" relationship="rootViewController" id="MuN-qH-dxa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q5X-Oy-gZp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2924" y="-238.83058470764618"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="outline_assignment_black_18dp.png" width="36" height="36"/>
-        <image name="outline_file_copy_black_18dp.png" width="36" height="36"/>
+        <image name="ncl_myReports" width="36" height="36"/>
+        <image name="ncl_newReport" width="36" height="36"/>
     </resources>
 </document>

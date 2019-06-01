@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AA2AA2E922870516001B6EC5 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2AA2E722870516001B6EC5 /* ImageTableViewCell.swift */; };
 		AA2AA2EA22870516001B6EC5 /* ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA2AA2E822870516001B6EC5 /* ImageTableViewCell.xib */; };
+		AA2D6B6B22A29F540042A164 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2D6B6A22A29F540042A164 /* CategoryTableViewController.swift */; };
 		AA2FAFCC2269B89F005C27C7 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FAFCB2269B89F005C27C7 /* Report.swift */; };
 		AA2FAFCE2269C5FB005C27C7 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FAFCD2269C5FB005C27C7 /* LocationService.swift */; };
 		AA318951227DC38C0079FF8A /* LocationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA318950227DC38C0079FF8A /* LocationObserver.swift */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		AA2AA2E722870516001B6EC5 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
 		AA2AA2E822870516001B6EC5 /* ImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTableViewCell.xib; sourceTree = "<group>"; };
+		AA2D6B6A22A29F540042A164 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		AA2FAFCB2269B89F005C27C7 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		AA2FAFCD2269C5FB005C27C7 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		AA318950227DC38C0079FF8A /* LocationObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationObserver.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				AABB42352262128600B72C36 /* AppDelegate.swift */,
 				AABB425122622D3B00B72C36 /* NewReportTableViewController.swift */,
 				AABB424F226214BE00B72C36 /* MyReportsTableViewController.swift */,
+				AA2D6B6A22A29F540042A164 /* CategoryTableViewController.swift */,
 				AA2FAFCB2269B89F005C27C7 /* Report.swift */,
 				AA2AA2E722870516001B6EC5 /* ImageTableViewCell.swift */,
 				AA2AA2E822870516001B6EC5 /* ImageTableViewCell.xib */,
@@ -194,6 +197,7 @@
 				AAF8A905227C7C5600D53629 /* TableViewService.swift in Sources */,
 				AABB42362262128600B72C36 /* AppDelegate.swift in Sources */,
 				AA2FAFCE2269C5FB005C27C7 /* LocationService.swift in Sources */,
+				AA2D6B6B22A29F540042A164 /* CategoryTableViewController.swift in Sources */,
 				AA318951227DC38C0079FF8A /* LocationObserver.swift in Sources */,
 				AABB425222622D3B00B72C36 /* NewReportTableViewController.swift in Sources */,
 				AA2FAFCC2269B89F005C27C7 /* Report.swift in Sources */,
