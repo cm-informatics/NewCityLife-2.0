@@ -53,10 +53,23 @@ class NewReportTableViewController: UITableViewController, LocationObserver{
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
         if segue.identifier == "catSegue" {
-            print("cat")
+            let navigationController = segue.destination as! UINavigationController
+            let categoryTableView = navigationController.children[0] as! CategoryTableViewController
+            categoryTableView.onSave = onSave
+            
+            //print("Sender: \(sender)")
+            if sender! is UITableViewCell {
+                
+            }
         }
      }
+    
+    func onSave(_ data: String) -> () {
+        print("fetched data: \(data)")
+        
+        //TODO: Den Inhalt von data an die Tabelle (bzw. row) übergeben
+        tableViewService.contentData[1] = data
+        tableView.reloadData()
+    }
 }

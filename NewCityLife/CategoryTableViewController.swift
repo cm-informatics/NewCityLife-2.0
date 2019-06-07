@@ -11,6 +11,7 @@ import UIKit
 class CategoryTableViewController: UITableViewController {
 
     var issueArray = ["Grafiti", "Schlagloch", "Müll", "Brandschaden", "Wasserschaden"]
+    var onSave: ((_ data: String) -> ())?
     
     
     override func viewDidLoad() {
@@ -34,6 +35,12 @@ class CategoryTableViewController: UITableViewController {
 
         cell.textLabel?.text = issueArray[indexPath.row]
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Item \(indexPath.row) selected")
+        onSave?(issueArray[indexPath.row])
+        dismiss(animated: true, completion: nil)
     }
 
     @IBAction func cancelButtonPressed(_ sender: Any) {
