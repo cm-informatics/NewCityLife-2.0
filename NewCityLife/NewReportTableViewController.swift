@@ -50,26 +50,29 @@ class NewReportTableViewController: UITableViewController, LocationObserver{
     }
     
      // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "catSegue" {
             let navigationController = segue.destination as! UINavigationController
             let categoryTableView = navigationController.children[0] as! CategoryTableViewController
             categoryTableView.onSave = onSave
+        }
+        
+        if segue.identifier == "commentSegue" {
+            let navigationController = segue.destination as! UINavigationController
+            let commentViewController = navigationController.children[0] as! CommentViewController
+            commentViewController.onSaveComment = onSaveComment
             
-            //print("Sender: \(sender)")
-            if sender! is UITableViewCell {
-                
-            }
         }
      }
     
     func onSave(_ data: String) -> () {
-        print("fetched data: \(data)")
-        
-        //TODO: Den Inhalt von data an die Tabelle (bzw. row) übergeben
         tableViewService.contentData[1] = data
-        tableView.reloadData()
+        tableView.reloadSections(IndexSet(arrayLiteral: 1), with: .automatic)
+    }
+    
+    func onSaveComment(_ data: String) -> () {
+        tableViewService.contentData[2] = data
+        tableView.reloadSections(IndexSet(arrayLiteral: 2), with: .automatic)
     }
 }

@@ -1,0 +1,36 @@
+
+/* Class = "UINavigationItem"; title = "Kommentar"; ObjectID = "71h-dc-KUn"; */
+"71h-dc-KUn.title" = "Kommentar";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "9Ek-rZ-RAF"; */
+"9Ek-rZ-RAF.text" = "Title";
+
+/* Class = "UITabBarItem"; title = "Neuer Bericht"; ObjectID = "B8u-4c-ihB"; */
+"B8u-4c-ihB.title" = "Neuer Bericht";
+
+/* Class = "UINavigationItem"; title = "Meine Berichte"; ObjectID = "BUz-go-m5E"; */
+"BUz-go-m5E.title" = "Meine Berichte";
+
+/* Class = "UITableViewController"; title = "Kategorie"; ObjectID = "EQT-Q4-gqN"; */
+"EQT-Q4-gqN.title" = "Kategorie";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "G4c-qV-aR7"; */
+"G4c-qV-aR7.text" = "Title";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "Ufq-jt-SW9"; */
+"Ufq-jt-SW9.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UINavigationItem"; title = "Neuer Bericht"; ObjectID = "XYe-vN-Ioe"; */
+"XYe-vN-Ioe.title" = "Neuer Bericht";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "mgd-Ht-X6c"; */
+"mgd-Ht-X6c.text" = "Title";
+
+/* Class = "UINavigationItem"; title = "Kategorie"; ObjectID = "tKc-8h-hkw"; */
+"tKc-8h-hkw.title" = "Kategorie";
+
+/* Class = "UITabBarItem"; title = "Meine Berichte"; ObjectID = "tQw-xR-HLX"; */
+"tQw-xR-HLX.title" = "Meine Berichte";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "v9s-4g-c8O"; */
+"v9s-4g-c8O.text" = "Title";

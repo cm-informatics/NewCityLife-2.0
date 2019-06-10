@@ -53,11 +53,11 @@
                                     <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9Ek-rZ-RAF">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9Ek-rZ-RAF">
                                             <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -76,17 +76,17 @@
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="G4c-qV-aR7">
                                             <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                            <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="5ta-mE-TXU" kind="showDetail" id="tMD-rt-ECu"/>
+                                    <segue destination="5ta-mE-TXU" kind="showDetail" identifier="commentSegue" id="tMD-rt-ECu"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="locationCell" textLabel="mgd-Ht-X6c" style="IBUITableViewCellStyleDefault" id="TCq-NU-A9g">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="locationCell" textLabel="mgd-Ht-X6c" style="IBUITableViewCellStyleDefault" id="TCq-NU-A9g">
                                 <rect key="frame" x="0.0" y="253.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TCq-NU-A9g" id="SME-58-VxH">
@@ -103,7 +103,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dateCell" textLabel="v9s-4g-c8O" style="IBUITableViewCellStyleDefault" id="Afb-Po-CrT">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="dateCell" textLabel="v9s-4g-c8O" style="IBUITableViewCellStyleDefault" id="Afb-Po-CrT">
                                 <rect key="frame" x="0.0" y="297.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Afb-Po-CrT" id="F8I-eA-0Wm">
@@ -200,20 +200,47 @@
         <!--Kommentar-->
         <scene sceneID="Ge6-88-bP6">
             <objects>
-                <viewController id="v4V-rX-76z" sceneMemberID="viewController">
+                <viewController id="v4V-rX-76z" customClass="CommentViewController" customModule="NewCityLife" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GTE-od-31O">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ufq-jt-SW9">
+                                <rect key="frame" x="16" y="80" width="343" height="522"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="WgI-Cv-rdI" firstAttribute="bottom" secondItem="Ufq-jt-SW9" secondAttribute="bottom" constant="16" id="21g-ah-33r"/>
+                            <constraint firstItem="Ufq-jt-SW9" firstAttribute="top" secondItem="WgI-Cv-rdI" secondAttribute="top" constant="16" id="3gG-Ti-KWD"/>
+                            <constraint firstItem="Ufq-jt-SW9" firstAttribute="leading" secondItem="WgI-Cv-rdI" secondAttribute="leading" constant="16" id="TgD-Rl-P4x"/>
+                            <constraint firstItem="WgI-Cv-rdI" firstAttribute="trailing" secondItem="Ufq-jt-SW9" secondAttribute="trailing" constant="16" id="ZGQ-wK-CRN"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="WgI-Cv-rdI"/>
                     </view>
                     <navigationItem key="navigationItem" title="Kommentar" id="71h-dc-KUn">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="VCI-wx-dro"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="VCI-wx-dro">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="v4V-rX-76z" id="ezZ-Ui-vra"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="4BD-o0-fR5">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="v4V-rX-76z" id="qWr-mF-z8s"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="commentTextView" destination="Ufq-jt-SW9" id="37Y-ce-hg2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bQ6-jQ-b75" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3888.8000000000002" y="426.83658170914543"/>
+            <point key="canvasLocation" x="3863.1999999999998" y="425.93703148425789"/>
         </scene>
         <!--Meine Berichte-->
         <scene sceneID="a3O-D1-Qgi">
