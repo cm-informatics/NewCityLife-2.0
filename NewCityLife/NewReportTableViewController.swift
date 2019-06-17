@@ -62,6 +62,7 @@ class NewReportTableViewController: UITableViewController, LocationObserver{
             let navigationController = segue.destination as! UINavigationController
             let commentViewController = navigationController.children[0] as! CommentViewController
             commentViewController.onSaveComment = onSaveComment
+            commentViewController.savedText = tableViewService.contentData[2]
             
         }
      }

@@ -11,6 +11,7 @@ import UIKit
 class CommentViewController: UIViewController {
 
     @IBOutlet weak var commentTextView: UITextView!
+    var savedText = ""
     
     var onSaveComment: ((_ data: String) -> ())?
     
@@ -22,6 +23,9 @@ class CommentViewController: UIViewController {
         commentTextView.layer.borderColor = UIColor.lightGray.cgColor
 
         // Do any additional setup after loading the view.
+        if !savedText.isEmpty {
+            commentTextView.text = savedText
+        }
     }
     
 
