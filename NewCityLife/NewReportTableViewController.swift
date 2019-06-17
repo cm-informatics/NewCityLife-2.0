@@ -59,8 +59,8 @@ class NewReportTableViewController: UITableViewController, LocationObserver{
         }
         
         if segue.identifier == "commentSegue" {
-            let navigationController = segue.destination as! UINavigationController
-            let commentViewController = navigationController.children[0] as! CommentViewController
+            //let navigationController = segue.destination as! UINavigationController
+            let commentViewController = segue.destination as! CommentViewController
             commentViewController.onSaveComment = onSaveComment
             commentViewController.savedText = tableViewService.contentData[2]
             
