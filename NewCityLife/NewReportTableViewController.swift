@@ -63,8 +63,8 @@ class NewReportTableViewController: UITableViewController, LocationObserver{
             let commentViewController = segue.destination as! CommentViewController
             commentViewController.onSaveComment = onSaveComment
             commentViewController.savedText = tableViewService.contentData[2]
-            
         }
+    print("Testtttttttttttt")
      }
     
     func onSave(_ data: String) -> () {
@@ -75,5 +75,10 @@ class NewReportTableViewController: UITableViewController, LocationObserver{
     func onSaveComment(_ data: String) -> () {
         tableViewService.contentData[2] = data
         tableView.reloadSections(IndexSet(arrayLiteral: 2), with: .automatic)
+    }
+    @IBAction func goToCamera(_ sender: Any) {
+        /*let cameraService = CameraService()
+        cameraService.prepareCamera()
+ */
     }
 }

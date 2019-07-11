@@ -14,6 +14,8 @@
 		AA2FAFCC2269B89F005C27C7 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FAFCB2269B89F005C27C7 /* Report.swift */; };
 		AA2FAFCE2269C5FB005C27C7 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FAFCD2269C5FB005C27C7 /* LocationService.swift */; };
 		AA318951227DC38C0079FF8A /* LocationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA318950227DC38C0079FF8A /* LocationObserver.swift */; };
+		AA63691A22D5DB15007C7536 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA63691922D5DB15007C7536 /* ImageViewController.swift */; };
+		AA63691C22D5DE5E007C7536 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA63691B22D5DE5E007C7536 /* CameraService.swift */; };
 		AABB42362262128600B72C36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB42352262128600B72C36 /* AppDelegate.swift */; };
 		AABB423B2262128600B72C36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AABB42392262128600B72C36 /* Main.storyboard */; };
 		AABB423D2262128700B72C36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AABB423C2262128700B72C36 /* Assets.xcassets */; };
@@ -22,6 +24,7 @@
 		AABB424C2262140C00B72C36 /* outline_assignment_black_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = AABB424B2262140C00B72C36 /* outline_assignment_black_18dp.png */; };
 		AABB4250226214BE00B72C36 /* MyReportsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB424F226214BE00B72C36 /* MyReportsTableViewController.swift */; };
 		AABB425222622D3B00B72C36 /* NewReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB425122622D3B00B72C36 /* NewReportTableViewController.swift */; };
+		AAD6C25322B8F69C009F46CE /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD6C25222B8F69C009F46CE /* CustomButton.swift */; };
 		AAF8A905227C7C5600D53629 /* TableViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF8A904227C7C5600D53629 /* TableViewService.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +36,8 @@
 		AA2FAFCB2269B89F005C27C7 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		AA2FAFCD2269C5FB005C27C7 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		AA318950227DC38C0079FF8A /* LocationObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationObserver.swift; sourceTree = "<group>"; };
+		AA63691922D5DB15007C7536 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		AA63691B22D5DE5E007C7536 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
 		AABB42322262128600B72C36 /* NewCityLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewCityLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AABB42352262128600B72C36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AABB423A2262128600B72C36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -43,6 +48,7 @@
 		AABB424B2262140C00B72C36 /* outline_assignment_black_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = outline_assignment_black_18dp.png; sourceTree = "<group>"; };
 		AABB424F226214BE00B72C36 /* MyReportsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReportsTableViewController.swift; sourceTree = "<group>"; };
 		AABB425122622D3B00B72C36 /* NewReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReportTableViewController.swift; sourceTree = "<group>"; };
+		AAD6C25222B8F69C009F46CE /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		AAE280DA22AE669100003392 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		AAE280DB22AE669200003392 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		AAF8A904227C7C5600D53629 /* TableViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewService.swift; sourceTree = "<group>"; };
@@ -86,6 +92,7 @@
 				AA1F802922AC354400106284 /* CommentViewController.swift */,
 				AA2FAFCB2269B89F005C27C7 /* Report.swift */,
 				AA2AA2E722870516001B6EC5 /* ImageTableViewCell.swift */,
+				AA63691922D5DB15007C7536 /* ImageViewController.swift */,
 				AA2AA2E822870516001B6EC5 /* ImageTableViewCell.xib */,
 				AAF8A903227C7C1C00D53629 /* Services */,
 				AABB42392262128600B72C36 /* Main.storyboard */,
@@ -100,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				AABB4248226213E600B72C36 /* Images */,
+				AAD6C25222B8F69C009F46CE /* CustomButton.swift */,
 			);
 			path = Ressources;
 			sourceTree = "<group>";
@@ -119,6 +127,7 @@
 				AA2FAFCD2269C5FB005C27C7 /* LocationService.swift */,
 				AAF8A904227C7C5600D53629 /* TableViewService.swift */,
 				AA318950227DC38C0079FF8A /* LocationObserver.swift */,
+				AA63691B22D5DE5E007C7536 /* CameraService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -204,9 +213,12 @@
 				AAF8A905227C7C5600D53629 /* TableViewService.swift in Sources */,
 				AABB42362262128600B72C36 /* AppDelegate.swift in Sources */,
 				AA2FAFCE2269C5FB005C27C7 /* LocationService.swift in Sources */,
+				AA63691C22D5DE5E007C7536 /* CameraService.swift in Sources */,
 				AA2D6B6B22A29F540042A164 /* CategoryTableViewController.swift in Sources */,
+				AAD6C25322B8F69C009F46CE /* CustomButton.swift in Sources */,
 				AA318951227DC38C0079FF8A /* LocationObserver.swift in Sources */,
 				AABB425222622D3B00B72C36 /* NewReportTableViewController.swift in Sources */,
+				AA63691A22D5DB15007C7536 /* ImageViewController.swift in Sources */,
 				AA2FAFCC2269B89F005C27C7 /* Report.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
