@@ -12,6 +12,7 @@ class CommentViewController: UIViewController {
 
     @IBOutlet weak var commentTextView: UITextView!
     @IBOutlet weak var holdView: UIView!
+    @IBOutlet weak var saveAndCloseButton: UIButton!
     var savedText = ""
     
     var onSaveComment: ((_ data: String) -> ())?
@@ -19,41 +20,19 @@ class CommentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        commentTextView.layer.borderWidth = 1
-        commentTextView.layer.cornerRadius = 6
-        commentTextView.layer.borderColor = UIColor.lightGray.cgColor
-        
-        holdView.layer.cornerRadius = 6
-        holdView.layer.borderWidth = 1
-        holdView.layer.borderColor = UIColor.lightGray.cgColor
-
-        // Do any additional setup after loading the view.
-        if !savedText.isEmpty {
-            commentTextView.text = savedText
+        styleViews(views: [holdView, commentTextView, saveAndCloseButton])
+        commentTextView.text = savedText
+    }
+    
+    func styleViews(views: [UIView]) {
+        for view in views {
+            view.layer.cornerRadius = 6
+            view.layer.borderWidth = 1
+            view.layer.borderColor = UIColor.lightGray.cgColor
         }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     @IBAction func saveAndCloseButtonPressed(_ sender: Any) {
-        onSaveComment?(commentTextView.text!)
-        dismiss(animated: true)
-    }
-    
-    
-    @IBAction func cancelButtonPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func saveButtonPressed(_ sender: Any) {
         onSaveComment?(commentTextView.text!)
         dismiss(animated: true)
     }

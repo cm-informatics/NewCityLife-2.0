@@ -253,10 +253,8 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="8f7-Mh-SNk"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Speichern und schließen">
-                                            <color key="titleColor" red="0.51204713749999997" green="0.86875396569999996" blue="0.53172921449999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="Speichern und schließen"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <integer key="value" value="6"/>
@@ -269,11 +267,11 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kommentar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRT-wf-UU0">
                                         <rect key="frame" x="8" y="12" width="335" height="28"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.51204713749999997" green="0.86875396569999996" blue="0.53172921449999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="ysg-c9-zCs" secondAttribute="bottom" constant="10" id="Bvt-Pz-JTv"/>
                                     <constraint firstItem="ysg-c9-zCs" firstAttribute="top" secondItem="Ufq-jt-SW9" secondAttribute="bottom" constant="8" id="I2K-no-rkz"/>
@@ -303,6 +301,7 @@
                     <connections>
                         <outlet property="commentTextView" destination="Ufq-jt-SW9" id="37Y-ce-hg2"/>
                         <outlet property="holdView" destination="QDm-7T-Wq8" id="iN5-zt-mT6"/>
+                        <outlet property="saveAndCloseButton" destination="ysg-c9-zCs" id="ldN-ON-6Z3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bQ6-jQ-b75" userLabel="First Responder" sceneMemberID="firstResponder"/>

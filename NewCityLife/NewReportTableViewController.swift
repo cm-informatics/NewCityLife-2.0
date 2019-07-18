@@ -39,11 +39,19 @@ class NewReportTableViewController: UITableViewController, LocationObserver{
     }
     
     // MARK: - LocationObserver
-    func locationChanged(latitude: Double, longitude: Double) {
+    
+    func locationChanged(location: CLLocationCoordinate2D) {
+        print("Latitude is: \(location.latitude)")
+        print("Longitude is: \(location.longitude)")
+        tableView.reloadData()
+    }
+    
+    /*func locationChanged(latitude: Double, longitude: Double) {
         print("Latitude is: \(latitude)")
         print("Longitude is: \(longitude)")
         tableView.reloadData()
     }
+ */
     
     func locationUpdateDidFail(error: Error) {
         print("Error")

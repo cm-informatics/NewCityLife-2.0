@@ -12,11 +12,11 @@ import CoreLocation
 class Report {
     var image: UIImage
     var category: String
-    var locationData: CLLocation
+    var locationData: CLLocationCoordinate2D
     var comment: String
     var timestamp: Date
     
-    init(image: UIImage, category: String, locationData: CLLocation, comment: String, timestamp: Date) {
+    init(image: UIImage, category: String, locationData: CLLocationCoordinate2D, comment: String, timestamp: Date) {
         self.image = image
         self.category = category
         self.comment = comment

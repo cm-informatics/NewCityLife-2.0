@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import CoreLocation
 
 class TableViewService: NSObject, UITableViewDelegate, UITableViewDataSource, LocationObserver {
     var headerArray = [String]()
     var contentData = ["Kein Foto ausgewählt", "Bitte wählen...", "Kommentar schreiben...", "", ""]
     
-    var reportDictionary = [String:Any]()
+    var reportDictionary: [String:Any?] = ["Location": nil, "Image": nil, "Kategorie": nil, "Kommentar": nil]
     
     
     let cameraService = CameraService()
@@ -97,16 +98,23 @@ class TableViewService: NSObject, UITableViewDelegate, UITableViewDataSource, Lo
     
     //MARK: - LocationObserver
     
+    func locationChanged(location: CLLocationCoordinate2D) {
+        reportDictionary["Location"] = location
+        contentData[3] = "\(location.latitude), \(location.longitude)"
+        
+    }
+    
     func locationUpdateDidFail(error: Error) {
         print("TBL error: \(error.localizedDescription)")
     }
     
-    func locationChanged(latitude: Double, longitude: Double) {
+   /* func locationChanged(latitude: Double, longitude: Double) {
         print("TBL Latitude is: \(latitude)")
         print("TBL Longitude is: \(longitude)")
         
         contentData[3] = "\(latitude), \(longitude)"
     }
+ */
     
     //MARK: - Internal func
     
