@@ -11,22 +11,21 @@ import AVFoundation
 
 class CameraService: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    //var dismissImagePickerController: ((_ data: String) -> ())?
-    var dismissImagePickerController: (() -> ())?
+    var dismissImagePickerController: ((_ image: UIImage?) -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
     
+    //MARK: - UIImagePickerControllerDelegate
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-        print(selectedImage)
-        dismiss(animated: true, completion: nil)
+        dismissImagePickerController?(selectedImage)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismissImagePickerController?()
-        //dismiss(animated: true, completion: nil) <-- Hat keine Wirkung
+        dismissImagePickerController?(nil)
     }
 }

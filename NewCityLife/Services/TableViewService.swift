@@ -12,6 +12,9 @@ class TableViewService: NSObject, UITableViewDelegate, UITableViewDataSource, Lo
     var headerArray = [String]()
     var contentData = ["Kein Foto ausgewählt", "Bitte wählen...", "Kommentar schreiben...", "", ""]
     
+    var reportDictionary = [String:Any]()
+    
+    
     let cameraService = CameraService()
     
     var presentImagePickerController: ((_ viewController: UIImagePickerController) -> ())?
@@ -118,7 +121,11 @@ class TableViewService: NSObject, UITableViewDelegate, UITableViewDataSource, Lo
         return formatter.string(from: Date())
     }
     
-    func dismissImagePickerController() {
+    func dismissImagePickerController(_ image: UIImage?) {
+        if let selectedImage = image {
+            print("SELECTED Image: \(selectedImage)")
+            reportDictionary["Image"] = selectedImage
+        }
         dismissCameraPickerController?()
     }
     
