@@ -20,6 +20,8 @@ class TableViewService: NSObject, UITableViewDelegate, UITableViewDataSource, Lo
     
     var presentImagePickerController: ((_ viewController: UIImagePickerController) -> ())?
     var dismissCameraPickerController: (() -> ())?
+    var onLocationChanged: ((_ location: CLLocationCoordinate2D) -> ())?
+    
     
     //MARK: - TableView DataSource
     
@@ -101,7 +103,7 @@ class TableViewService: NSObject, UITableViewDelegate, UITableViewDataSource, Lo
     func locationChanged(location: CLLocationCoordinate2D) {
         reportDictionary["Location"] = location
         contentData[3] = "\(location.latitude), \(location.longitude)"
-        
+        onLocationChanged?(location)
     }
     
     func locationUpdateDidFail(error: Error) {

@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class NewReportTableViewController: UITableViewController, LocationObserver{
+class NewReportTableViewController: UITableViewController{
     
     let locationManager = CLLocationManager()
     let locationService = LocationService()
@@ -28,23 +28,17 @@ class NewReportTableViewController: UITableViewController, LocationObserver{
         locationManager.delegate = locationService
         
         locationService.getCurrentLocation(locationManager: locationManager)
-        locationService.register(observer: self)
         
         //Hier melde ich zusätzlich den TableViewService an, ist vielleicht besser als self
         locationService.register(observer: tableViewService)
         
         tableViewService.presentImagePickerController = presentImagePickerController
         tableViewService.dismissCameraPickerController = dismissCameraPickerController
-        
+        tableViewService.onLocationChanged = onLocationChanged
+        print(#function)
     }
     
-    // MARK: - LocationObserver
     
-    func locationChanged(location: CLLocationCoordinate2D) {
-        print("Latitude is: \(location.latitude)")
-        print("Longitude is: \(location.longitude)")
-        tableView.reloadData()
-    }
     
     /*func locationChanged(latitude: Double, longitude: Double) {
         print("Latitude is: \(latitude)")
@@ -75,6 +69,12 @@ class NewReportTableViewController: UITableViewController, LocationObserver{
      }
     
     //MARK: - Callbacks
+    
+    func onLocationChanged(_ location: CLLocationCoordinate2D) {
+        print("Latitude is: \(location.latitude)")
+        print("Longitude is: \(location.longitude)")
+        tableView.reloadData()
+    }
     
     func onSave(_ data: String) -> () {
         tableViewService.contentData[1] = data
