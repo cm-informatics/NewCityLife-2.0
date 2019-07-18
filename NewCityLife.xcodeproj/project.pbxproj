@@ -9,12 +9,10 @@
 /* Begin PBXBuildFile section */
 		AA1F802A22AC354400106284 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1F802922AC354400106284 /* CommentViewController.swift */; };
 		AA2AA2E922870516001B6EC5 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2AA2E722870516001B6EC5 /* ImageTableViewCell.swift */; };
-		AA2AA2EA22870516001B6EC5 /* ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA2AA2E822870516001B6EC5 /* ImageTableViewCell.xib */; };
 		AA2D6B6B22A29F540042A164 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2D6B6A22A29F540042A164 /* CategoryTableViewController.swift */; };
 		AA2FAFCC2269B89F005C27C7 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FAFCB2269B89F005C27C7 /* Report.swift */; };
 		AA2FAFCE2269C5FB005C27C7 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FAFCD2269C5FB005C27C7 /* LocationService.swift */; };
 		AA318951227DC38C0079FF8A /* LocationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA318950227DC38C0079FF8A /* LocationObserver.swift */; };
-		AA63691A22D5DB15007C7536 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA63691922D5DB15007C7536 /* ImageViewController.swift */; };
 		AA63691C22D5DE5E007C7536 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA63691B22D5DE5E007C7536 /* CameraService.swift */; };
 		AABB42362262128600B72C36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB42352262128600B72C36 /* AppDelegate.swift */; };
 		AABB423B2262128600B72C36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AABB42392262128600B72C36 /* Main.storyboard */; };
@@ -31,12 +29,10 @@
 /* Begin PBXFileReference section */
 		AA1F802922AC354400106284 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		AA2AA2E722870516001B6EC5 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
-		AA2AA2E822870516001B6EC5 /* ImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTableViewCell.xib; sourceTree = "<group>"; };
 		AA2D6B6A22A29F540042A164 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		AA2FAFCB2269B89F005C27C7 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		AA2FAFCD2269C5FB005C27C7 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		AA318950227DC38C0079FF8A /* LocationObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationObserver.swift; sourceTree = "<group>"; };
-		AA63691922D5DB15007C7536 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		AA63691B22D5DE5E007C7536 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
 		AABB42322262128600B72C36 /* NewCityLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewCityLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AABB42352262128600B72C36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,8 +88,6 @@
 				AA1F802922AC354400106284 /* CommentViewController.swift */,
 				AA2FAFCB2269B89F005C27C7 /* Report.swift */,
 				AA2AA2E722870516001B6EC5 /* ImageTableViewCell.swift */,
-				AA63691922D5DB15007C7536 /* ImageViewController.swift */,
-				AA2AA2E822870516001B6EC5 /* ImageTableViewCell.xib */,
 				AAF8A903227C7C1C00D53629 /* Services */,
 				AABB42392262128600B72C36 /* Main.storyboard */,
 				AABB423C2262128700B72C36 /* Assets.xcassets */,
@@ -194,7 +188,6 @@
 				AABB424C2262140C00B72C36 /* outline_assignment_black_18dp.png in Resources */,
 				AABB424A226213FA00B72C36 /* outline_file_copy_black_18dp.png in Resources */,
 				AABB42402262128700B72C36 /* LaunchScreen.storyboard in Resources */,
-				AA2AA2EA22870516001B6EC5 /* ImageTableViewCell.xib in Resources */,
 				AABB423D2262128700B72C36 /* Assets.xcassets in Resources */,
 				AABB423B2262128600B72C36 /* Main.storyboard in Resources */,
 			);
@@ -218,7 +211,6 @@
 				AAD6C25322B8F69C009F46CE /* CustomButton.swift in Sources */,
 				AA318951227DC38C0079FF8A /* LocationObserver.swift in Sources */,
 				AABB425222622D3B00B72C36 /* NewReportTableViewController.swift in Sources */,
-				AA63691A22D5DB15007C7536 /* ImageViewController.swift in Sources */,
 				AA2FAFCC2269B89F005C27C7 /* Report.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

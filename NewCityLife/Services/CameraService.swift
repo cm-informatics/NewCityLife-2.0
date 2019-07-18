@@ -9,70 +9,24 @@
 import UIKit
 import AVFoundation
 
-class CameraService: UIViewController {
+class CameraService: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    let captureSession = AVCaptureSession()
-    var previewLayer: CALayer!
+    //var dismissImagePickerController: ((_ data: String) -> ())?
+    var dismissImagePickerController: (() -> ())?
     
-    var captureDevice: AVCaptureDevice!
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        prepareCamera()
     }
     
-    func prepareCamera() {
-        captureSession.sessionPreset = AVCaptureSession.Preset.photo
-        
-        let availableDevices = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .back).devices
-        captureDevice = availableDevices.first
-        beginSession()
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        print(selectedImage)
+        dismiss(animated: true, completion: nil)
     }
     
-    func beginSession() {
-        do {
-            let captureDeviceInput = try AVCaptureDeviceInput(device: captureDevice)
-            
-            //Clear inputs before adding a new one
-            if let inputs = captureSession.inputs as? [AVCaptureDeviceInput]{
-                for input in inputs {
-                    captureSession.removeInput(input)
-                }
-            }
-            captureSession.addInput(captureDeviceInput)
-            
-        } catch {
-            print(error.localizedDescription)
-        }
-        
-        let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        self.previewLayer = previewLayer
-        self.view.layer.addSublayer(previewLayer)
-        self.previewLayer.frame = self.view.layer.frame
-        captureSession.startRunning()
-        
-        let dataOutput = AVCaptureVideoDataOutput()
-        //dataOutput.videoSettings = [(kCVPixelBufferPixelFormatTypeKey as String): NSNumber(value: kCVPixelFormatType_32BGRA)]
-        dataOutput.alwaysDiscardsLateVideoFrames = true
-        
-        if captureSession.canAddOutput(dataOutput) {
-            captureSession.addOutput(dataOutput)
-        }
-        
-        captureSession.commitConfiguration()
-        
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismissImagePickerController?()
+        //dismiss(animated: true, completion: nil) <-- Hat keine Wirkung
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

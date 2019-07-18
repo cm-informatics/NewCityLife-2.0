@@ -12,6 +12,11 @@ class TableViewService: NSObject, UITableViewDelegate, UITableViewDataSource, Lo
     var headerArray = [String]()
     var contentData = ["Kein Foto ausgewählt", "Bitte wählen...", "Kommentar schreiben...", "", ""]
     
+    let cameraService = CameraService()
+    
+    var presentImagePickerController: ((_ viewController: UIImagePickerController) -> ())?
+    var dismissCameraPickerController: (() -> ())?
+    
     //MARK: - TableView DataSource
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -29,7 +34,8 @@ class TableViewService: NSObject, UITableViewDelegate, UITableViewDataSource, Lo
         switch indexPath.section {
         case 0:
             let customCell = tableView.dequeueReusableCell(withIdentifier: "imageCell", for: indexPath) as! ImageTableViewCell
-            customCell.imageCellLabel.text = contentData[indexPath.row]
+            customCell.imageCellLabel.text = contentData[indexPath.section]
+            //customCell.imageCellLabel.text = "zzz"
             return customCell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
@@ -71,6 +77,19 @@ class TableViewService: NSObject, UITableViewDelegate, UITableViewDataSource, Lo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("\(indexPath)")
+        if indexPath.section == 0 {
+            let  imagePicker = UIImagePickerController()
+            imagePicker.delegate = cameraService
+            
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                imagePicker.sourceType = .camera
+            }
+            else {
+                imagePicker.sourceType = .photoLibrary
+            }
+            presentImagePickerController?(imagePicker)
+            cameraService.dismissImagePickerController = dismissImagePickerController
+        }
     }
     
     //MARK: - LocationObserver
@@ -98,4 +117,9 @@ class TableViewService: NSObject, UITableViewDelegate, UITableViewDataSource, Lo
         
         return formatter.string(from: Date())
     }
+    
+    func dismissImagePickerController() {
+        dismissCameraPickerController?()
+    }
+    
 }

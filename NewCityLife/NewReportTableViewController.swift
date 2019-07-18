@@ -33,9 +33,9 @@ class NewReportTableViewController: UITableViewController, LocationObserver{
         //Hier melde ich zusätzlich den TableViewService an, ist vielleicht besser als self
         locationService.register(observer: tableViewService)
         
-        //Register Custom Cell
-        let nib = UINib(nibName: "ImageTableViewCell", bundle: nil)
-        self.tableView.register(nib, forCellReuseIdentifier: "imageCell")
+        tableViewService.presentImagePickerController = presentImagePickerController
+        tableViewService.dismissCameraPickerController = dismissCameraPickerController
+        
     }
     
     // MARK: - LocationObserver
@@ -64,8 +64,9 @@ class NewReportTableViewController: UITableViewController, LocationObserver{
             commentViewController.onSaveComment = onSaveComment
             commentViewController.savedText = tableViewService.contentData[2]
         }
-    print("Testtttttttttttt")
      }
+    
+    //MARK: - Callbacks
     
     func onSave(_ data: String) -> () {
         tableViewService.contentData[1] = data
@@ -76,9 +77,13 @@ class NewReportTableViewController: UITableViewController, LocationObserver{
         tableViewService.contentData[2] = data
         tableView.reloadSections(IndexSet(arrayLiteral: 2), with: .automatic)
     }
-    @IBAction func goToCamera(_ sender: Any) {
-        /*let cameraService = CameraService()
-        cameraService.prepareCamera()
- */
+    
+    func presentImagePickerController(_ viewController: UIImagePickerController) -> (){
+        self.present(viewController, animated: true, completion: nil)
     }
+    
+    func dismissCameraPickerController() -> () {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }
