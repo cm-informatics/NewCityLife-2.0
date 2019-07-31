@@ -7,9 +7,8 @@
 //
 
 import Foundation
-import CoreLocation
 
 protocol LocationObserver {
-    func locationChanged(location: CLLocationCoordinate2D)
+    func locationChanged(location: (latitude: Double, longitude: Double))
     func locationUpdateDidFail(error: Error)
 }

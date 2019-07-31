@@ -6,10 +6,10 @@
 //  Copyright © 2019 Christian.Mansch. All rights reserved.
 //
 
-import UIKit
 import CoreLocation
+import UIKit
 
-class NewReportTableViewController: UITableViewController{
+class NewReportTableViewController: UITableViewController, LocationObserver{
     
     let locationManager = CLLocationManager()
     let locationService = LocationService()
@@ -24,28 +24,24 @@ class NewReportTableViewController: UITableViewController{
         
         tableView.delegate = tableViewService
         tableView.dataSource = tableViewService
-
-        locationManager.delegate = locationService
         
+        locationManager.delegate = locationService
         locationService.getCurrentLocation(locationManager: locationManager)
         
-        //Hier melde ich zusätzlich den TableViewService an, ist vielleicht besser als self
         locationService.register(observer: tableViewService)
+        //locationService.register(observer: self)
+        
+        tableViewService.onLocationChanged = onLocationChanged
         
         tableViewService.presentImagePickerController = presentImagePickerController
         tableViewService.dismissCameraPickerController = dismissCameraPickerController
-        tableViewService.onLocationChanged = onLocationChanged
-        print(#function)
     }
     
-    
-    
-    /*func locationChanged(latitude: Double, longitude: Double) {
-        print("Latitude is: \(latitude)")
-        print("Longitude is: \(longitude)")
+    func locationChanged(location: (latitude: Double, longitude: Double)) {
+        print("Latitude now: \(location.latitude)")
+        print("Longitude now: \(location.longitude)")
         tableView.reloadData()
     }
- */
     
     func locationUpdateDidFail(error: Error) {
         print("Error")
@@ -69,11 +65,18 @@ class NewReportTableViewController: UITableViewController{
      }
     
     //MARK: - Callbacks
-    
-    func onLocationChanged(_ location: CLLocationCoordinate2D) {
+    /*func onLocationChanged(_ location: CLLocationCoordinate2D) {
         print("Latitude is: \(location.latitude)")
         print("Longitude is: \(location.longitude)")
         tableView.reloadData()
+    }
+ */
+    
+    func onLocationChanged(_ location: (latitude: Double, longitude: Double)) {
+        print("Latitude is: \(location.latitude)")
+        print("Longitude is: \(location.longitude)")
+        tableView.reloadData()
+        //Vielleicht mit Notifaction Center lösen
     }
     
     func onSave(_ data: String) -> () {

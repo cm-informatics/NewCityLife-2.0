@@ -13,9 +13,6 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     
     var observerList = [LocationObserver]()
     
-    var lon: CLLocationDegrees? = nil
-    var lat: CLLocationDegrees? = nil
-    
     var error: Error?
     
     func getCurrentLocation(locationManager: CLLocationManager) {
@@ -41,11 +38,9 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         manager.stopUpdatingLocation()
         
-        var location = CLLocationCoordinate2D()
-        
+        var location = (latitude: Double(), longitude: Double())
         location.latitude = locations[0].coordinate.latitude
         location.longitude = locations[0].coordinate.longitude
-        
         notifyObservers(location: location)
     }
     
@@ -56,7 +51,7 @@ class LocationService: NSObject, CLLocationManagerDelegate {
         notifyObservers(location: nil)
     }
     
-    func notifyObservers(location: CLLocationCoordinate2D?) {
+    func notifyObservers(location: (latitude: Double, longitude: Double)?) {
         
         if let position = location {
             for item in observerList {

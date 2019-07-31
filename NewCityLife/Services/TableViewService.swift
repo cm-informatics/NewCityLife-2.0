@@ -7,20 +7,19 @@
 //
 
 import UIKit
-import CoreLocation
 
 class TableViewService: NSObject, UITableViewDelegate, UITableViewDataSource, LocationObserver {
+    
     var headerArray = [String]()
     var contentData = ["Kein Foto ausgewählt", "Bitte wählen...", "Kommentar schreiben...", "", ""]
     
     var reportDictionary: [String:Any?] = ["Location": nil, "Image": nil, "Kategorie": nil, "Kommentar": nil]
     
-    
     let cameraService = CameraService()
     
     var presentImagePickerController: ((_ viewController: UIImagePickerController) -> ())?
     var dismissCameraPickerController: (() -> ())?
-    var onLocationChanged: ((_ location: CLLocationCoordinate2D) -> ())?
+    var onLocationChanged: ((_ location: (latitude: Double, longitude: Double)) -> ())?
     
     
     //MARK: - TableView DataSource
@@ -54,6 +53,7 @@ class TableViewService: NSObject, UITableViewDelegate, UITableViewDataSource, Lo
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "locationCell", for: indexPath)
             cell.textLabel?.text = contentData[indexPath.section]
+            print("Only Value: \(contentData[indexPath.section])")
             return cell
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: "dateCell", for: indexPath)
@@ -69,6 +69,8 @@ class TableViewService: NSObject, UITableViewDelegate, UITableViewDataSource, Lo
     }
     
     //MARK: - TableView Delegate
+    
+    
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return headerArray[section]
@@ -100,23 +102,17 @@ class TableViewService: NSObject, UITableViewDelegate, UITableViewDataSource, Lo
     
     //MARK: - LocationObserver
     
-    func locationChanged(location: CLLocationCoordinate2D) {
+    func locationChanged(location: (latitude: Double, longitude: Double)) {
         reportDictionary["Location"] = location
         contentData[3] = "\(location.latitude), \(location.longitude)"
-        onLocationChanged?(location)
+        print(location)
+        onLocationChanged?((latitude: location.latitude, longitude: location.longitude))
+        print(contentData)
     }
     
     func locationUpdateDidFail(error: Error) {
         print("TBL error: \(error.localizedDescription)")
     }
-    
-   /* func locationChanged(latitude: Double, longitude: Double) {
-        print("TBL Latitude is: \(latitude)")
-        print("TBL Longitude is: \(longitude)")
-        
-        contentData[3] = "\(latitude), \(longitude)"
-    }
- */
     
     //MARK: - Internal func
     
@@ -129,6 +125,9 @@ class TableViewService: NSObject, UITableViewDelegate, UITableViewDataSource, Lo
         formatter.dateFormat = "d. MMMM yyyy, HH:mm"
         
         return formatter.string(from: Date())
+    }
+    
+    func notifyViewControllers() {
     }
     
     func dismissImagePickerController(_ image: UIImage?) {

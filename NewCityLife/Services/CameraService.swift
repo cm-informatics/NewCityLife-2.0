@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AVFoundation
+//import AVFoundation
 
 class CameraService: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
