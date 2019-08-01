@@ -7,34 +7,31 @@
 //
 
 import UIKit
-//import CoreLocation
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-   /* let locationManager = CLLocationManager()
+    
+    let locationManager = CLLocationManager()
     let locationService = LocationService()
     let tableViewService = TableViewService()
- */
+    var locationDidChanged: ((_ location: (latitude: Double, longitude: Double)) -> ())?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        /*locationManager.delegate = locationService
+        locationManager.delegate = locationService
         locationService.getCurrentLocation(locationManager: locationManager)
         locationService.register(observer: tableViewService)
         tableViewService.onLocationChanged = onLocationChanged
- */
 
         return true
     }
 
-    /*func onLocationChanged(_ location: (latitude: Double, longitude: Double)) {
-        print("Latitude is: \(location.latitude)")
-        print("Longitude is: \(location.longitude)")
-        //Vielleicht mit Notifaction Center lösen
+    func onLocationChanged(_ location: (latitude: Double, longitude: Double)) {
+        locationDidChanged?(location)
     }
- */
     
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

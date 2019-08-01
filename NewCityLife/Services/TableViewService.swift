@@ -10,7 +10,7 @@ import UIKit
 
 class TableViewService: NSObject, UITableViewDelegate, UITableViewDataSource, LocationObserver {
     
-    var headerArray = [String]()
+    let headerArray = ["Bild", " Kategorie", "Kommentar", "Standort", "Datum"]
     var contentData = ["Kein Foto ausgewählt", "Bitte wählen...", "Kommentar schreiben...", "", ""]
     
     var reportDictionary: [String:Any?] = ["Location": nil, "Image": nil, "Kategorie": nil, "Kommentar": nil]
@@ -53,7 +53,6 @@ class TableViewService: NSObject, UITableViewDelegate, UITableViewDataSource, Lo
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "locationCell", for: indexPath)
             cell.textLabel?.text = contentData[indexPath.section]
-            print("Only Value: \(contentData[indexPath.section])")
             return cell
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: "dateCell", for: indexPath)
@@ -103,11 +102,7 @@ class TableViewService: NSObject, UITableViewDelegate, UITableViewDataSource, Lo
     //MARK: - LocationObserver
     
     func locationChanged(location: (latitude: Double, longitude: Double)) {
-        reportDictionary["Location"] = location
-        contentData[3] = "\(location.latitude), \(location.longitude)"
-        print(location)
         onLocationChanged?((latitude: location.latitude, longitude: location.longitude))
-        print(contentData)
     }
     
     func locationUpdateDidFail(error: Error) {

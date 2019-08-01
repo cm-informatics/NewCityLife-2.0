@@ -6,45 +6,29 @@
 //  Copyright © 2019 Christian.Mansch. All rights reserved.
 //
 
-import CoreLocation
 import UIKit
 
-class NewReportTableViewController: UITableViewController, LocationObserver{
-    
-    let locationManager = CLLocationManager()
-    let locationService = LocationService()
+class NewReportTableViewController: UITableViewController{
     
     let tableViewService = TableViewService()
-    let headerTitle = ["Bild", " Kategorie", "Kommentar", "Standort", "Datum"]
+    let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableViewService.headerArray = headerTitle
-        
         tableView.delegate = tableViewService
         tableView.dataSource = tableViewService
         
-        locationManager.delegate = locationService
-        locationService.getCurrentLocation(locationManager: locationManager)
-        
-        locationService.register(observer: tableViewService)
-        //locationService.register(observer: self)
-        
-        tableViewService.onLocationChanged = onLocationChanged
+        appDelegate.locationDidChanged = locationDidChanged
         
         tableViewService.presentImagePickerController = presentImagePickerController
         tableViewService.dismissCameraPickerController = dismissCameraPickerController
+        
     }
     
-    func locationChanged(location: (latitude: Double, longitude: Double)) {
-        print("Latitude now: \(location.latitude)")
-        print("Longitude now: \(location.longitude)")
+    func locationDidChanged(location: (latitude: Double, longitude: Double)) {
+        tableViewService.contentData[3] = "\(location.latitude), \(location.longitude)"
         tableView.reloadData()
-    }
-    
-    func locationUpdateDidFail(error: Error) {
-        print("Error")
     }
     
      // MARK: - Navigation
@@ -65,19 +49,7 @@ class NewReportTableViewController: UITableViewController, LocationObserver{
      }
     
     //MARK: - Callbacks
-    /*func onLocationChanged(_ location: CLLocationCoordinate2D) {
-        print("Latitude is: \(location.latitude)")
-        print("Longitude is: \(location.longitude)")
-        tableView.reloadData()
-    }
- */
     
-    func onLocationChanged(_ location: (latitude: Double, longitude: Double)) {
-        print("Latitude is: \(location.latitude)")
-        print("Longitude is: \(location.longitude)")
-        tableView.reloadData()
-        //Vielleicht mit Notifaction Center lösen
-    }
     
     func onSave(_ data: String) -> () {
         tableViewService.contentData[1] = data
