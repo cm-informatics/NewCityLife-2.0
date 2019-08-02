@@ -10,17 +10,23 @@ import UIKit
 import CoreLocation
 
 class Report {
-    var image: UIImage
-    var category: String
-    var locationData: CLLocationCoordinate2D
-    var comment: String
-    var timestamp: Date
+    var id: String!
+    var image: UIImage!
+    var category: String!
+    var locationData: CLLocationCoordinate2D!
+    var comment: String!
+    var timestamp: Date!
     
-    init(image: UIImage, category: String, locationData: CLLocationCoordinate2D, comment: String, timestamp: Date) {
-        self.image = image
-        self.category = category
-        self.comment = comment
-        self.timestamp = timestamp
-        self.locationData = locationData
+//    init(image: UIImage, category: String, locationData: CLLocationCoordinate2D, comment: String, timestamp: Date) {
+//        id = UUID().uuidString
+//        self.image = image
+//        self.category = category
+//        self.comment = comment
+//        self.timestamp = timestamp
+//        self.locationData = locationData
+//    }
+    
+    init() {
+        id = UUID().uuidString
     }
 }

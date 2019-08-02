@@ -11,14 +11,16 @@ import UIKit
 class TableViewService: NSObject, UITableViewDelegate, UITableViewDataSource, LocationObserver {
     
     let headerArray = ["Bild", " Kategorie", "Kommentar", "Standort", "Datum"]
-    var contentData = ["Kein Foto ausgewählt", "Bitte wählen...", "Kommentar schreiben...", "", ""]
+    var contentData = ["Ausgewähltes Foto", "Bitte wählen...", "Kommentar schreiben...", "", ""]
     
-    var reportDictionary: [String:Any?] = ["Location": nil, "Image": nil, "Kategorie": nil, "Kommentar": nil]
+    var reportDictionary: [String:Any?] = ["Location": nil, "Image": UIImage(named: "no_image"), "Kategorie": nil, "Kommentar": nil]
     
     let cameraService = CameraService()
     
     var presentImagePickerController: ((_ viewController: UIImagePickerController) -> ())?
     var dismissCameraPickerController: (() -> ())?
+    var getImageFromImagePickerController: ((_ image: UIImage) -> ())?
+    
     var onLocationChanged: ((_ location: (latitude: Double, longitude: Double)) -> ())?
     
     
@@ -40,6 +42,7 @@ class TableViewService: NSObject, UITableViewDelegate, UITableViewDataSource, Lo
         case 0:
             let customCell = tableView.dequeueReusableCell(withIdentifier: "imageCell", for: indexPath) as! ImageTableViewCell
             customCell.imageCellLabel.text = contentData[indexPath.section]
+            customCell.imageCellImageView.image = reportDictionary["Image"] as? UIImage
             //customCell.imageCellLabel.text = "zzz"
             return customCell
         case 1:
@@ -128,8 +131,9 @@ class TableViewService: NSObject, UITableViewDelegate, UITableViewDataSource, Lo
     func dismissImagePickerController(_ image: UIImage?) {
         if let selectedImage = image {
             print("SELECTED Image: \(selectedImage)")
-            reportDictionary["Image"] = selectedImage
+            getImageFromImagePickerController?(selectedImage)
         }
+        
         dismissCameraPickerController?()
     }
     

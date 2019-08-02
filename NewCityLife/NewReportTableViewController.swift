@@ -23,7 +23,8 @@ class NewReportTableViewController: UITableViewController{
         
         tableViewService.presentImagePickerController = presentImagePickerController
         tableViewService.dismissCameraPickerController = dismissCameraPickerController
-        
+        tableViewService.getImageFromImagePickerController = getImageFromImagePickerController
+       
     }
     
     func locationDidChanged(location: (latitude: Double, longitude: Double)) {
@@ -69,4 +70,18 @@ class NewReportTableViewController: UITableViewController{
         dismiss(animated: true, completion: nil)
     }
     
+    func getImageFromImagePickerController(_ image: UIImage) -> () {
+        print("I HAVE MY IMAGE: \(image)")
+        tableViewService.reportDictionary["Image"] = image
+        tableView.reloadData()
+    }
+    
+    
+//    func dismissImagePickerController(_ image: UIImage?) {
+//        if let selectedImage = image {
+//            print("SELECTED Image: \(selectedImage)")
+//            reportDictionary["Image"] = selectedImage
+//        }
+//        dismissCameraPickerController?()
+//    }
 }
