@@ -13,6 +13,7 @@ class NewReportTableViewController: UITableViewController{
     let tableViewService = TableViewService()
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -76,6 +77,17 @@ class NewReportTableViewController: UITableViewController{
         tableView.reloadData()
     }
     
+    @IBAction func sendButtonPressed(_ sender: UIBarButtonItem) {
+        let values = tableViewService.reportDictionary.values
+        print(values)
+        for value in values {
+            if value == nil {
+                let alertView = UIAlertController(title: "Fehler", message: "Alle Werte angeben", preferredStyle: .alert)
+                alertView.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alertView, animated: true, completion: nil)
+            }
+        }
+    }
     
 //    func dismissImagePickerController(_ image: UIImage?) {
 //        if let selectedImage = image {

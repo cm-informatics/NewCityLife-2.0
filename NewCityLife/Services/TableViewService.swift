@@ -10,10 +10,10 @@ import UIKit
 
 class TableViewService: NSObject, UITableViewDelegate, UITableViewDataSource, LocationObserver {
     
-    let headerArray = ["Bild", " Kategorie", "Kommentar", "Standort", "Datum"]
+    let headerArray = ["Foto", " Kategorie", "Kommentar", "Standort", "Datum"]
     var contentData = ["Ausgewähltes Foto", "Bitte wählen...", "Kommentar schreiben...", "", ""]
     
-    var reportDictionary: [String:Any?] = ["Location": nil, "Image": UIImage(named: "no_image"), "Kategorie": nil, "Kommentar": nil]
+    var reportDictionary: [String:Any?] = ["Location": nil, "Image": UIImage(named: "no_image"), "Kategorie": nil, "Kommentar": nil, "Date": nil]
     
     let cameraService = CameraService()
     

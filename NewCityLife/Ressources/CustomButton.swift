@@ -10,7 +10,7 @@ import UIKit
 
 class CustomButton: UIButton {
 
-    let customColor = UIColor(red: 240/255, green: 54/255, blue: 120/255, alpha: 1)
+    let customColor = UIColor(red: 120/255, green: 54/255, blue: 240/255, alpha: 1)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,8 +26,8 @@ class CustomButton: UIButton {
         layer.cornerRadius = frame.size.height / 2
         layer.borderWidth = 3
         layer.borderColor = customColor.cgColor
-        setTitleColor(customColor, for: .normal)
-        backgroundColor = .white
+        setTitleColor(.white, for: .normal)
+        backgroundColor = customColor
         titleLabel?.font = UIFont(name: "Arial", size: 17)
     }
     
