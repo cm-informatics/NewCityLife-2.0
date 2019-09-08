@@ -10,12 +10,23 @@ import UIKit
 
 class TableViewService: NSObject, UITableViewDelegate, UITableViewDataSource, LocationObserver {
     
+    enum Components {
+        case image
+        case category
+        case comment
+        case location
+        case date
+    }
+    
     let headerArray = ["Foto", " Kategorie", "Kommentar", "Standort", "Datum"]
     var contentData = ["Ausgewähltes Foto", "Bitte wählen...", "Kommentar schreiben...", "", ""]
     
-    var reportDictionary: [String:Any?] = ["Location": nil, "Image": UIImage(named: "no_image"), "Kategorie": nil, "Kommentar": nil, "Date": nil]
+    var reportDictionary: [Components:Any?] = [.image: nil, .category: nil, .comment: nil, .date: nil]
     
     let cameraService = CameraService()
+    
+    //var myDIct: [Value:Any?] = [.Location: "dd"]
+    
     
     var presentImagePickerController: ((_ viewController: UIImagePickerController) -> ())?
     var dismissCameraPickerController: (() -> ())?
@@ -42,7 +53,7 @@ class TableViewService: NSObject, UITableViewDelegate, UITableViewDataSource, Lo
         case 0:
             let customCell = tableView.dequeueReusableCell(withIdentifier: "imageCell", for: indexPath) as! ImageTableViewCell
             customCell.imageCellLabel.text = contentData[indexPath.section]
-            customCell.imageCellImageView.image = reportDictionary["Image"] as? UIImage
+            customCell.imageCellImageView.image = reportDictionary[.image] as? UIImage
             //customCell.imageCellLabel.text = "zzz"
             return customCell
         case 1:
@@ -60,6 +71,7 @@ class TableViewService: NSObject, UITableViewDelegate, UITableViewDataSource, Lo
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: "dateCell", for: indexPath)
             cell.textLabel?.text = getDate()
+            reportDictionary[.date] = cell.textLabel?.text
             return cell
  
         default:

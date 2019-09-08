@@ -30,6 +30,7 @@ class NewReportTableViewController: UITableViewController{
     
     func locationDidChanged(location: (latitude: Double, longitude: Double)) {
         tableViewService.contentData[3] = "\(location.latitude), \(location.longitude)"
+        tableViewService.reportDictionary[.location] = location
         tableView.reloadData()
     }
     
@@ -55,11 +56,13 @@ class NewReportTableViewController: UITableViewController{
     
     func onSave(_ data: String) -> () {
         tableViewService.contentData[1] = data
+        tableViewService.reportDictionary[.category] = data
         tableView.reloadSections(IndexSet(arrayLiteral: 1), with: .automatic)
     }
     
     func onSaveComment(_ data: String) -> () {
         tableViewService.contentData[2] = data
+        tableViewService.reportDictionary[.comment] = data
         tableView.reloadSections(IndexSet(arrayLiteral: 2), with: .automatic)
     }
     
@@ -73,7 +76,7 @@ class NewReportTableViewController: UITableViewController{
     
     func getImageFromImagePickerController(_ image: UIImage) -> () {
         print("I HAVE MY IMAGE: \(image)")
-        tableViewService.reportDictionary["Image"] = image
+        tableViewService.reportDictionary[.image] = image
         tableView.reloadData()
     }
     
@@ -85,8 +88,10 @@ class NewReportTableViewController: UITableViewController{
                 let alertView = UIAlertController(title: "Fehler", message: "Alle Werte angeben", preferredStyle: .alert)
                 alertView.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(alertView, animated: true, completion: nil)
+                return
             }
         }
+        print("Ende")
     }
     
 //    func dismissImagePickerController(_ image: UIImage?) {

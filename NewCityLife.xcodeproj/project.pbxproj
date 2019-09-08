@@ -14,6 +14,10 @@
 		AA2FAFCE2269C5FB005C27C7 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FAFCD2269C5FB005C27C7 /* LocationService.swift */; };
 		AA318951227DC38C0079FF8A /* LocationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA318950227DC38C0079FF8A /* LocationObserver.swift */; };
 		AA63691C22D5DE5E007C7536 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA63691B22D5DE5E007C7536 /* CameraService.swift */; };
+		AAA3140A230423DB00877C8F /* ReportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA31409230423DB00877C8F /* ReportsViewController.swift */; };
+		AAA3140D2304341E00877C8F /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA3140C2304341E00877C8F /* UIButtonExtension.swift */; };
+		AAA3140F2304463300877C8F /* AddReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA3140E2304463300877C8F /* AddReportViewController.swift */; };
+		AAA314112304499D00877C8F /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA314102304499D00877C8F /* UIViewExtension.swift */; };
 		AABB42362262128600B72C36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB42352262128600B72C36 /* AppDelegate.swift */; };
 		AABB423B2262128600B72C36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AABB42392262128600B72C36 /* Main.storyboard */; };
 		AABB423D2262128700B72C36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AABB423C2262128700B72C36 /* Assets.xcassets */; };
@@ -34,6 +38,10 @@
 		AA2FAFCD2269C5FB005C27C7 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		AA318950227DC38C0079FF8A /* LocationObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationObserver.swift; sourceTree = "<group>"; };
 		AA63691B22D5DE5E007C7536 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
+		AAA31409230423DB00877C8F /* ReportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsViewController.swift; sourceTree = "<group>"; };
+		AAA3140C2304341E00877C8F /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		AAA3140E2304463300877C8F /* AddReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReportViewController.swift; sourceTree = "<group>"; };
+		AAA314102304499D00877C8F /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		AABB42322262128600B72C36 /* NewCityLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewCityLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AABB42352262128600B72C36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AABB423A2262128600B72C36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -61,6 +69,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AAA3140B230433C100877C8F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AAA3140C2304341E00877C8F /* UIButtonExtension.swift */,
+				AAA314102304499D00877C8F /* UIViewExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		AABB42292262128600B72C36 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +105,8 @@
 				AA1F802922AC354400106284 /* CommentViewController.swift */,
 				AA2FAFCB2269B89F005C27C7 /* Report.swift */,
 				AA2AA2E722870516001B6EC5 /* ImageTableViewCell.swift */,
+				AAA31409230423DB00877C8F /* ReportsViewController.swift */,
+				AAA3140E2304463300877C8F /* AddReportViewController.swift */,
 				AAF8A903227C7C1C00D53629 /* Services */,
 				AABB42392262128600B72C36 /* Main.storyboard */,
 				AABB423C2262128700B72C36 /* Assets.xcassets */,
@@ -100,6 +119,7 @@
 		AABB4247226213D500B72C36 /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
+				AAA3140B230433C100877C8F /* Extensions */,
 				AABB4248226213E600B72C36 /* Images */,
 				AAD6C25222B8F69C009F46CE /* CustomButton.swift */,
 			);
@@ -206,12 +226,16 @@
 				AAF8A905227C7C5600D53629 /* TableViewService.swift in Sources */,
 				AABB42362262128600B72C36 /* AppDelegate.swift in Sources */,
 				AA2FAFCE2269C5FB005C27C7 /* LocationService.swift in Sources */,
+				AAA314112304499D00877C8F /* UIViewExtension.swift in Sources */,
 				AA63691C22D5DE5E007C7536 /* CameraService.swift in Sources */,
 				AA2D6B6B22A29F540042A164 /* CategoryTableViewController.swift in Sources */,
 				AAD6C25322B8F69C009F46CE /* CustomButton.swift in Sources */,
+				AAA3140A230423DB00877C8F /* ReportsViewController.swift in Sources */,
 				AA318951227DC38C0079FF8A /* LocationObserver.swift in Sources */,
+				AAA3140D2304341E00877C8F /* UIButtonExtension.swift in Sources */,
 				AABB425222622D3B00B72C36 /* NewReportTableViewController.swift in Sources */,
 				AA2FAFCC2269B89F005C27C7 /* Report.swift in Sources */,
+				AAA3140F2304463300877C8F /* AddReportViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
