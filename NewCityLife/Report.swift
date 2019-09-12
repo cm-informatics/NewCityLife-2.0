@@ -27,6 +27,7 @@ class Report {
 //    }
     
     init() {
+        locationData = CLLocationCoordinate2D()
         id = UUID().uuidString
     }
 }

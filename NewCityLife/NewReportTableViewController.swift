@@ -31,6 +31,7 @@ class NewReportTableViewController: UITableViewController{
     func locationDidChanged(location: (latitude: Double, longitude: Double)) {
         tableViewService.contentData[3] = "\(location.latitude), \(location.longitude)"
         tableViewService.reportDictionary[.location] = location
+        
         tableView.reloadData()
     }
     
@@ -92,13 +93,23 @@ class NewReportTableViewController: UITableViewController{
             }
         }
         print("Ende")
+        PListService.saveReportToPlist(report: createReport())
+
     }
     
-//    func dismissImagePickerController(_ image: UIImage?) {
-//        if let selectedImage = image {
-//            print("SELECTED Image: \(selectedImage)")
-//            reportDictionary["Image"] = selectedImage
-//        }
-//        dismissCameraPickerController?()
-//    }
+    private func createReport() -> Report {
+        let location = tableViewService.reportDictionary[.location] as! (latitude: Double, longitude: Double)
+        
+        let report = Report()
+        report.category = tableViewService.reportDictionary[.category] as? String
+        report.comment = tableViewService.reportDictionary[.comment] as? String
+        report.image = tableViewService.reportDictionary[.image] as? UIImage
+        
+        report.locationData.latitude = location.latitude
+        report.locationData.longitude = location.longitude
+        report.timestamp = tableViewService.reportDictionary[.date] as? Date
+        print("My Report data: \(report)")
+        
+        return report
+    }
 }
