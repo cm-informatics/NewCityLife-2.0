@@ -9,6 +9,10 @@
 import UIKit
 
 class PListService {
+    
+    private static let fileName = "myReports.plist"
+    
+    
     static func saveReportToPlist(report: Report) {
         
         //Datei-Pfad für die PList anlegen
@@ -30,7 +34,7 @@ class PListService {
                 }
             }
             //Da das Verzeichnis existiert wird jetzt die pList erstellt
-            plistPath = reportsPath.appendingPathComponent("myReports.plist", isDirectory: false)
+            plistPath = reportsPath.appendingPathComponent(fileName, isDirectory: false)
             
             if !fileManager.fileExists(atPath: plistPath.path) {
                 let dictionary = NSDictionary()
@@ -39,16 +43,31 @@ class PListService {
             }
             
             if let completeReport = NSMutableDictionary(contentsOf: plistPath) {
-                completeReport.setObject(report, forKey: report.id! as NSCopying)
+                completeReport.setObject([report.category!, report.comment!, report.locationData.latitude], forKey: report.id! as NSCopying)
                 do {
                     try completeReport.write(to: plistPath)
                 }
                 catch {
-                    print("Error writing to file: \(error)")
+                    print("Error writing to file: \(error.localizedDescription)")
                 }
                 print("Complete report: \(completeReport)")
             }
             
         }
+    }
+    
+    static func loadReports() -> NSDictionary { //hier sollte ich ein Report-Object zurückliefern
+        let fileManager = FileManager()
+        let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
+        let reportsPath = URL(fileURLWithPath: documentPath!, isDirectory: true).appendingPathComponent("Reports")
+        let pListPath = reportsPath.appendingPathComponent(fileName, isDirectory: false)
+        
+        if fileManager.fileExists(atPath: pListPath.path) {
+            if let listOfAllReports = NSDictionary(contentsOf: pListPath) {
+                return listOfAllReports
+            }
+            
+        }
+        return NSDictionary()
     }
 }

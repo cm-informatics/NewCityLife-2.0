@@ -10,14 +10,17 @@ import UIKit
 
 class MyReportsTableViewController: UITableViewController {
 
+    var myReportsDictionary = NSDictionary()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        myReportsDictionary = PListService.loadReports()
+        print("Reps: \(myReportsDictionary)")
+        
     }
 
     // MARK: - Table view data source
@@ -27,16 +30,32 @@ class MyReportsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return myReportsDictionary.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myReportsCell", for: indexPath)
 
-        cell.textLabel?.text = "Test"
+        let report = myReportsDictionary.allValues[indexPath.row] as! [Any]
+        /*if report is String {
+            print(true)
+        }
+        else {
+            print("false")
+        }
+ */
+    
+        
+        cell.textLabel?.text = "\(report[0])"
 
         return cell
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        myReportsDictionary = PListService.loadReports()
+        tableView.reloadData()
     }
 
     /*

@@ -25,8 +25,6 @@ class TableViewService: NSObject, UITableViewDelegate, UITableViewDataSource, Lo
     
     let cameraService = CameraService()
     
-    //var myDIct: [Value:Any?] = [.Location: "dd"]
-    
     
     var presentImagePickerController: ((_ viewController: UIImagePickerController) -> ())?
     var dismissCameraPickerController: (() -> ())?
@@ -70,8 +68,8 @@ class TableViewService: NSObject, UITableViewDelegate, UITableViewDataSource, Lo
             return cell
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: "dateCell", for: indexPath)
+            reportDictionary[.date] = Date()
             cell.textLabel?.text = getDate()
-            reportDictionary[.date] = cell.textLabel?.text
             return cell
  
         default:
