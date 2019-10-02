@@ -27,7 +27,7 @@ class SQLIteService {
             print(error)
         }
         
-        let createTableQuery = "CREATE TABLE IF NOT EXISTS Reports (id TEXT PRIMARY KEY, category TEXT, comment TEXT, ^"
+        //let createTableQuery = "CREATE TABLE IF NOT EXISTS Reports (id TEXT PRIMARY KEY, category TEXT, comment TEXT, ^"
         
     }
     

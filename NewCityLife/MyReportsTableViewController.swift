@@ -19,7 +19,7 @@ class MyReportsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         myReportsDictionary = PListService.loadReports()
-        print("Reps: \(myReportsDictionary)")
+        //print("Reps: \(myReportsDictionary)")
         
     }
 
@@ -37,7 +37,7 @@ class MyReportsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myReportsCell", for: indexPath)
 
-        let report = myReportsDictionary.allValues[indexPath.row] as! [Any]
+        let report = myReportsDictionary.allValues[indexPath.row]
         /*if report is String {
             print(true)
         }
@@ -47,7 +47,7 @@ class MyReportsTableViewController: UITableViewController {
  */
     
         
-        cell.textLabel?.text = "\(report[0])"
+        cell.textLabel?.text = "\(report)"
 
         return cell
     }

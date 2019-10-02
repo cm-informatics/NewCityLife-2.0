@@ -94,19 +94,26 @@ class NewReportTableViewController: UITableViewController{
         }
         print("Ende")
         
-        //createReport()
+        //createDictionary()
         
         
         
-        PListService.saveReportToPlist(report: createReport())
+        PListService.saveReportToPlist(dictionary: createDictionary())
+        
+        //PListService.loadReports()
 
     }
     
-    private func createReport() -> Report{
+    private func createDictionary() -> Dictionary<TableViewService.Components, Any?>{
+        
+        
         let location = tableViewService.reportDictionary[.location] as! (latitude: Double, longitude: Double)
         
         
         let report = Report()
+        
+        tableViewService.reportDictionary[.id] = report.id
+        
         report.category = tableViewService.reportDictionary[.category] as? String
         report.comment = tableViewService.reportDictionary[.comment] as? String
         report.image = tableViewService.reportDictionary[.image] as? UIImage
@@ -115,13 +122,16 @@ class NewReportTableViewController: UITableViewController{
         report.locationData.longitude = location.longitude
         report.timestamp = tableViewService.reportDictionary[.date] as? Date
         
+        print("my ID is: \(String(describing: tableViewService.reportDictionary[.id]))")
+        
+        
         
         //defaults.set(report.locationData.latitude, forKey: "loc")
         //defaults.set(report.timestamp, forKey: "date")
         //print(defaults.object(forKey: "date"))
         //print(defaults.object(forKey: "loc"))
         
-        return report
+        return tableViewService.reportDictionary
         
     }
     

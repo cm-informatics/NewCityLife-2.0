@@ -11,6 +11,7 @@ import UIKit
 class TableViewService: NSObject, UITableViewDelegate, UITableViewDataSource, LocationObserver {
     
     enum Components {
+        case id
         case image
         case category
         case comment
@@ -21,7 +22,7 @@ class TableViewService: NSObject, UITableViewDelegate, UITableViewDataSource, Lo
     let headerArray = ["Foto", " Kategorie", "Kommentar", "Standort", "Datum"]
     var contentData = ["Ausgewähltes Foto", "Bitte wählen...", "Kommentar schreiben...", "", ""]
     
-    var reportDictionary: [Components:Any?] = [.image: nil, .category: nil, .comment: nil, .date: nil]
+    var reportDictionary: [Components:Any?] = [.id: "0000", .image: nil, .category: nil, .comment: nil, .date: nil]
     
     let cameraService = CameraService()
     

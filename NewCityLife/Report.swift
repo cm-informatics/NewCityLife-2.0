@@ -14,6 +14,7 @@ class Report {
     var image: UIImage!
     var category: String!
     var locationData: CLLocationCoordinate2D!
+    var location: Coordinates!
     var comment: String!
     var timestamp: Date!
     
@@ -30,4 +31,9 @@ class Report {
         locationData = CLLocationCoordinate2D()
         id = UUID().uuidString
     }
+}
+
+struct Coordinates: Hashable, Codable {
+    var latitude: Double
+    var longitude: Double
 }

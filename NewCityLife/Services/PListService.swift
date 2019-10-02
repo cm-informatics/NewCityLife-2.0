@@ -13,14 +13,47 @@ class PListService {
     private static let fileName = "myReports.plist"
     
     
-    static func saveReportToPlist(report: Report) {
+    static func saveReportToPlist(dictionary: Dictionary<TableViewService.Components, Any?>) {
         
         //Datei-Pfad für die PList anlegen
         let fileManager = FileManager()
         var plistPath: URL
         
-        let rootPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
+        let id = dictionary[.id] as! String
         
+        let location = dictionary[.location] as! (latitude: Double, longitude: Double)
+        
+        //Hier wird das ursprüngliche Dictionary in ein anderes Dictionary umgewandelt damit es gültig ist und in einer Datei gespeichert werden kann.
+        //Probleme macht hier die "location" Property. daher wird diese umgewandelt
+        
+        /*
+        let conformDictionary = NSDictionary()
+        conformDictionary.setValue(id, forKey: "id")
+        conformDictionary.setValue(location.latitude, forKey: "latitude")
+        conformDictionary.setValue(location.longitude, forKey: "longitude")
+        conformDictionary.setValue(dictionary[.category]!, forKey: "category")
+        conformDictionary.setValue(dictionary[.comment]!, forKey: "comment")
+        conformDictionary.setValue(dictionary[.image]!, forKey: "image")
+        conformDictionary.setValue(dictionary[.date]!, forKey: "date")
+ */
+        var conformDictionary = [String : Any]()
+        conformDictionary["id"] = id
+        conformDictionary["category"] = dictionary[.category]!
+        conformDictionary["latitude"] = location.latitude
+        conformDictionary["longitude"] = location.longitude
+        conformDictionary["comment"] = dictionary[.comment]!
+        conformDictionary["date"] = dictionary[.date]!
+        //conformDictionary["image"] = (dictionary[.image] as! UIImage)
+        
+        let reportImage = dictionary[.image] as! UIImage
+        let imageData = reportImage.pngData()
+        
+        conformDictionary["image"] = imageData!
+        
+        
+        //Jetz muss das image nur noch in Data umgewandelt werden weil es die PList sonst nicht einlesen kann
+        
+        let rootPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
         if let documentDir = rootPath {
             let reportsPath = URL(fileURLWithPath: documentDir, isDirectory: true).appendingPathComponent("Reports")
             
@@ -43,14 +76,14 @@ class PListService {
             }
             
             if let completeReport = NSMutableDictionary(contentsOf: plistPath) {
-                completeReport.setObject([report.category!, report.comment!, report.locationData.latitude], forKey: report.id! as NSCopying)
+                completeReport.setObject(conformDictionary, forKey: id as NSCopying)
                 do {
                     try completeReport.write(to: plistPath)
                 }
                 catch {
                     print("Error writing to file: \(error.localizedDescription)")
                 }
-                print("Complete report: \(completeReport)")
+                //print("Complete report: \(completeReport)")
             }
             
         }
@@ -64,6 +97,12 @@ class PListService {
         
         if fileManager.fileExists(atPath: pListPath.path) {
             if let listOfAllReports = NSDictionary(contentsOf: pListPath) {
+                
+                for report in listOfAllReports {
+                    print(report.key)
+                    //print(report.value)
+                }
+                
                 return listOfAllReports
             }
             
