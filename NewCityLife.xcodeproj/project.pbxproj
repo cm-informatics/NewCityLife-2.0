@@ -15,10 +15,8 @@
 		AA318951227DC38C0079FF8A /* LocationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA318950227DC38C0079FF8A /* LocationObserver.swift */; };
 		AA63691C22D5DE5E007C7536 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA63691B22D5DE5E007C7536 /* CameraService.swift */; };
 		AA663103232A4A7D0069F8A8 /* PListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA663102232A4A7D0069F8A8 /* PListService.swift */; };
-		AA663105232A957C0069F8A8 /* SQLiteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA663104232A957C0069F8A8 /* SQLiteService.swift */; };
 		AAA3140A230423DB00877C8F /* ReportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA31409230423DB00877C8F /* ReportsViewController.swift */; };
 		AAA3140D2304341E00877C8F /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA3140C2304341E00877C8F /* UIButtonExtension.swift */; };
-		AAA3140F2304463300877C8F /* AddReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA3140E2304463300877C8F /* AddReportViewController.swift */; };
 		AAA314112304499D00877C8F /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA314102304499D00877C8F /* UIViewExtension.swift */; };
 		AABB42362262128600B72C36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB42352262128600B72C36 /* AppDelegate.swift */; };
 		AABB423B2262128600B72C36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AABB42392262128600B72C36 /* Main.storyboard */; };
@@ -41,10 +39,8 @@
 		AA318950227DC38C0079FF8A /* LocationObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationObserver.swift; sourceTree = "<group>"; };
 		AA63691B22D5DE5E007C7536 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
 		AA663102232A4A7D0069F8A8 /* PListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PListService.swift; sourceTree = "<group>"; };
-		AA663104232A957C0069F8A8 /* SQLiteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteService.swift; sourceTree = "<group>"; };
 		AAA31409230423DB00877C8F /* ReportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsViewController.swift; sourceTree = "<group>"; };
 		AAA3140C2304341E00877C8F /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
-		AAA3140E2304463300877C8F /* AddReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReportViewController.swift; sourceTree = "<group>"; };
 		AAA314102304499D00877C8F /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		AABB42322262128600B72C36 /* NewCityLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewCityLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AABB42352262128600B72C36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -110,7 +106,6 @@
 				AA2FAFCB2269B89F005C27C7 /* Report.swift */,
 				AA2AA2E722870516001B6EC5 /* ImageTableViewCell.swift */,
 				AAA31409230423DB00877C8F /* ReportsViewController.swift */,
-				AAA3140E2304463300877C8F /* AddReportViewController.swift */,
 				AAF8A903227C7C1C00D53629 /* Services */,
 				AABB42392262128600B72C36 /* Main.storyboard */,
 				AABB423C2262128700B72C36 /* Assets.xcassets */,
@@ -147,7 +142,6 @@
 				AA318950227DC38C0079FF8A /* LocationObserver.swift */,
 				AA63691B22D5DE5E007C7536 /* CameraService.swift */,
 				AA663102232A4A7D0069F8A8 /* PListService.swift */,
-				AA663104232A957C0069F8A8 /* SQLiteService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -233,7 +227,6 @@
 				AABB42362262128600B72C36 /* AppDelegate.swift in Sources */,
 				AA663103232A4A7D0069F8A8 /* PListService.swift in Sources */,
 				AA2FAFCE2269C5FB005C27C7 /* LocationService.swift in Sources */,
-				AA663105232A957C0069F8A8 /* SQLiteService.swift in Sources */,
 				AAA314112304499D00877C8F /* UIViewExtension.swift in Sources */,
 				AA63691C22D5DE5E007C7536 /* CameraService.swift in Sources */,
 				AA2D6B6B22A29F540042A164 /* CategoryTableViewController.swift in Sources */,
@@ -243,7 +236,6 @@
 				AAA3140D2304341E00877C8F /* UIButtonExtension.swift in Sources */,
 				AABB425222622D3B00B72C36 /* NewReportTableViewController.swift in Sources */,
 				AA2FAFCC2269B89F005C27C7 /* Report.swift in Sources */,
-				AAA3140F2304463300877C8F /* AddReportViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@ import UIKit
 
 class CategoryTableViewController: UITableViewController {
 
-    var issueArray = ["Grafiti", "Schlagloch", "Müll", "Brandschaden", "Wasserschaden"]
+    var issueArray = ["Graffiti", "Schlagloch", "Müll", "Brandschaden", "Wasserschaden"]
     var onSave: ((_ data: String) -> ())?
     
     

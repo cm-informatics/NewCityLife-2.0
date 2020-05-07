@@ -86,7 +86,7 @@ class NewReportTableViewController: UITableViewController{
         print(values)
         for value in values {
             if value == nil {
-                let alertView = UIAlertController(title: "Fehler", message: "Alle Werte angeben", preferredStyle: .alert)
+                let alertView = UIAlertController(title: "Fehler !", message: "Sie müssen alle Werte angeben", preferredStyle: .alert)
                 alertView.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(alertView, animated: true, completion: nil)
                 return
@@ -106,8 +106,13 @@ class NewReportTableViewController: UITableViewController{
     
     private func createDictionary() -> Dictionary<TableViewService.Components, Any?>{
         
+        var location: (latitude: Double, longitude: Double) = (latitude: 0, longitude: 0)
         
-        let location = tableViewService.reportDictionary[.location] as! (latitude: Double, longitude: Double)
+        if let loc = tableViewService.reportDictionary[.location] {
+             location = loc as! (latitude: Double, longitude: Double)
+        }
+        
+       // let location = tableViewService.reportDictionary[.location] as! (latitude: Double, longitude: Double)
         
         
         let report = Report()

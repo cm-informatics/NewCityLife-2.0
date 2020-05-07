@@ -21,26 +21,16 @@ class PListService {
         
         let id = dictionary[.id] as! String
         
-        let location = dictionary[.location] as! (latitude: Double, longitude: Double)
+        let location = dictionary[.location] as? (latitude: Double, longitude: Double)
         
         //Hier wird das ursprüngliche Dictionary in ein anderes Dictionary umgewandelt damit es gültig ist und in einer Datei gespeichert werden kann.
         //Probleme macht hier die "location" Property. daher wird diese umgewandelt
         
-        /*
-        let conformDictionary = NSDictionary()
-        conformDictionary.setValue(id, forKey: "id")
-        conformDictionary.setValue(location.latitude, forKey: "latitude")
-        conformDictionary.setValue(location.longitude, forKey: "longitude")
-        conformDictionary.setValue(dictionary[.category]!, forKey: "category")
-        conformDictionary.setValue(dictionary[.comment]!, forKey: "comment")
-        conformDictionary.setValue(dictionary[.image]!, forKey: "image")
-        conformDictionary.setValue(dictionary[.date]!, forKey: "date")
- */
         var conformDictionary = [String : Any]()
         conformDictionary["id"] = id
         conformDictionary["category"] = dictionary[.category]!
-        conformDictionary["latitude"] = location.latitude
-        conformDictionary["longitude"] = location.longitude
+        conformDictionary["latitude"] = location?.latitude ?? "keine Daten verfügbar"
+        conformDictionary["longitude"] = location?.longitude ?? "keine Daten verfügbar"
         conformDictionary["comment"] = dictionary[.comment]!
         conformDictionary["date"] = dictionary[.date]!
         //conformDictionary["image"] = (dictionary[.image] as! UIImage)

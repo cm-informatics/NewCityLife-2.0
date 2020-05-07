@@ -19,7 +19,11 @@ class MyReportsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         myReportsDictionary = PListService.loadReports()
-        //print("Reps: \(myReportsDictionary)")
+        print("Reps: \(myReportsDictionary)")
+        print("Count: \(myReportsDictionary.count)")
+        
+        //# TODO: Read the contents of the data stored in reportsArray and display them into the table view
+        //var reportsArray = prepareTableData(dataDict: myReportsDictionary)
         
     }
 
@@ -37,7 +41,8 @@ class MyReportsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myReportsCell", for: indexPath)
 
-        let report = myReportsDictionary.allValues[indexPath.row]
+        //let report = myReportsDictionary.allValues[indexPath.row]
+        let report = myReportsDictionary.allKeys[indexPath.row]
         /*if report is String {
             print(true)
         }
@@ -45,8 +50,6 @@ class MyReportsTableViewController: UITableViewController {
             print("false")
         }
  */
-    
-        
         cell.textLabel?.text = "\(report)"
 
         return cell
@@ -103,4 +106,16 @@ class MyReportsTableViewController: UITableViewController {
     }
     */
 
+    func prepareTableData(dataDict: NSDictionary) -> [Any] {
+        
+        //Get all reports from the dictionary and save them into an array
+        
+        var reportsDictionary = [Any]()
+        
+        for item in dataDict {
+            reportsDictionary.append(item.value)
+        }
+        
+        return reportsDictionary
+    }
 }
