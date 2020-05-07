@@ -79,7 +79,7 @@ class PListService {
         }
     }
     
-    static func loadReports() -> NSDictionary { //hier sollte ich ein Report-Object zurückliefern
+    static func loadReports() -> [Any] { //hier sollte ich ein Report-Object zurückliefern
         let fileManager = FileManager()
         let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
         let reportsPath = URL(fileURLWithPath: documentPath!, isDirectory: true).appendingPathComponent("Reports")
@@ -92,11 +92,29 @@ class PListService {
                     print(report.key)
                     //print(report.value)
                 }
+                var reportsArray = [Any]()
                 
-                return listOfAllReports
+                for item in listOfAllReports {
+                    reportsArray.append(item.value)
+                }
+                
+                return reportsArray
+                //return listOfAllReports
             }
             
         }
-        return NSDictionary()
+        return [Any]()
     }
+    
+  /*  func prepareTableData(dataDict: NSDictionary) -> [Any] {
+        var reportsArray = [Any]()
+        
+        for item in dataDict {
+            reportsArray.append(item.value)
+        }
+        
+        return reportsArray
+    }
+ */
+    
 }

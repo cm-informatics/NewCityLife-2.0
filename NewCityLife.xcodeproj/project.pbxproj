@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA0CD84824643E0400F7FE1D /* MyReportsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0CD84724643E0400F7FE1D /* MyReportsTableViewCell.swift */; };
 		AA1F802A22AC354400106284 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1F802922AC354400106284 /* CommentViewController.swift */; };
 		AA2AA2E922870516001B6EC5 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2AA2E722870516001B6EC5 /* ImageTableViewCell.swift */; };
 		AA2D6B6B22A29F540042A164 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2D6B6A22A29F540042A164 /* CategoryTableViewController.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA0CD84724643E0400F7FE1D /* MyReportsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReportsTableViewCell.swift; sourceTree = "<group>"; };
 		AA1F802922AC354400106284 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		AA2AA2E722870516001B6EC5 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
 		AA2D6B6A22A29F540042A164 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +71,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA0CD84924643E0B00F7FE1D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				AA0CD84724643E0400F7FE1D /* MyReportsTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		AAA3140B230433C100877C8F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +116,7 @@
 				AA2FAFCB2269B89F005C27C7 /* Report.swift */,
 				AA2AA2E722870516001B6EC5 /* ImageTableViewCell.swift */,
 				AAA31409230423DB00877C8F /* ReportsViewController.swift */,
+				AA0CD84924643E0B00F7FE1D /* Cells */,
 				AAF8A903227C7C1C00D53629 /* Services */,
 				AABB42392262128600B72C36 /* Main.storyboard */,
 				AABB423C2262128700B72C36 /* Assets.xcassets */,
@@ -235,6 +246,7 @@
 				AA318951227DC38C0079FF8A /* LocationObserver.swift in Sources */,
 				AAA3140D2304341E00877C8F /* UIButtonExtension.swift in Sources */,
 				AABB425222622D3B00B72C36 /* NewReportTableViewController.swift in Sources */,
+				AA0CD84824643E0400F7FE1D /* MyReportsTableViewCell.swift in Sources */,
 				AA2FAFCC2269B89F005C27C7 /* Report.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

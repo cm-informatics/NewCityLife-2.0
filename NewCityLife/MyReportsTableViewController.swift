@@ -10,7 +10,9 @@ import UIKit
 
 class MyReportsTableViewController: UITableViewController {
 
-    var myReportsDictionary = NSDictionary()
+    //var myReportsDictionary = NSDictionary()
+    var myReportsArray = [Any]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,9 +20,9 @@ class MyReportsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        myReportsDictionary = PListService.loadReports()
-        print("Reps: \(myReportsDictionary)")
-        print("Count: \(myReportsDictionary.count)")
+        myReportsArray = PListService.loadReports()
+        print("Reps: \(myReportsArray)")
+        print("Count: \(myReportsArray.count)")
         
         //# TODO: Read the contents of the data stored in reportsArray and display them into the table view
         //var reportsArray = prepareTableData(dataDict: myReportsDictionary)
@@ -34,30 +36,30 @@ class MyReportsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myReportsDictionary.count
+        return myReportsArray.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "myReportsCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "myReportsCell", for: indexPath) as! MyReportsTableViewCell
 
         //let report = myReportsDictionary.allValues[indexPath.row]
-        let report = myReportsDictionary.allKeys[indexPath.row]
-        /*if report is String {
-            print(true)
-        }
-        else {
-            print("false")
-        }
- */
-        cell.textLabel?.text = "\(report)"
+        //let report = myReportsDictionary.allKeys[indexPath.row]
+        
+        let preparedReport = myReportsArray[indexPath.row]
+        let report = preparedReport as! [String:Any]
+        
+        print(report["category"] ?? "nil")
+        cell.labelCategory.text = report["category"] as? String
+        //cell.labelCategory.text = report["category"] as? String
+        //cell.textLabel?.text = report["category"] as? String
 
         return cell
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        myReportsDictionary = PListService.loadReports()
+        myReportsArray = PListService.loadReports()
         tableView.reloadData()
     }
 
@@ -105,17 +107,10 @@ class MyReportsTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
-    func prepareTableData(dataDict: NSDictionary) -> [Any] {
-        
-        //Get all reports from the dictionary and save them into an array
-        
-        var reportsDictionary = [Any]()
-        
-        for item in dataDict {
-            reportsDictionary.append(item.value)
-        }
-        
-        return reportsDictionary
+    
+    //MARK: UITableViev Delegate
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
     }
 }
