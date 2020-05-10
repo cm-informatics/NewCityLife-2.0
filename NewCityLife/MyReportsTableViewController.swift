@@ -11,7 +11,9 @@ import UIKit
 class MyReportsTableViewController: UITableViewController {
 
     //var myReportsDictionary = NSDictionary()
-    var myReportsArray = [Any]()
+    //var myReportsArray = [[String: Any]]()
+    var reportsArray = [Report]()
+    
     
     
     override func viewDidLoad() {
@@ -20,9 +22,9 @@ class MyReportsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        myReportsArray = PListService.loadReports()
-        print("Reps: \(myReportsArray)")
-        print("Count: \(myReportsArray.count)")
+        reportsArray = PListService.loadReports()
+        //print("Reps: \(myReportsArray)")
+        print("Count: \(reportsArray.count)")
         
         //# TODO: Read the contents of the data stored in reportsArray and display them into the table view
         //var reportsArray = prepareTableData(dataDict: myReportsDictionary)
@@ -36,7 +38,7 @@ class MyReportsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myReportsArray.count
+        return reportsArray.count
     }
 
     
@@ -46,20 +48,21 @@ class MyReportsTableViewController: UITableViewController {
         //let report = myReportsDictionary.allValues[indexPath.row]
         //let report = myReportsDictionary.allKeys[indexPath.row]
         
-        let preparedReport = myReportsArray[indexPath.row]
-        let report = preparedReport as! [String:Any]
+        let report = reportsArray[indexPath.row]
         
-        print(report["category"] ?? "nil")
-        cell.labelCategory.text = report["category"] as? String
+        cell.labelCategory.text = report.category
+        //cell.labelCategory.text = report["category"] as? String
+        
+        //print(report["category"] ?? "nil")
+        //cell.labelCategory.text = report["category"] as? String
         //cell.labelCategory.text = report["category"] as? String
         //cell.textLabel?.text = report["category"] as? String
-
         return cell
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        myReportsArray = PListService.loadReports()
+        reportsArray = PListService.loadReports()
         tableView.reloadData()
     }
 

@@ -29,8 +29,9 @@ class PListService {
         var conformDictionary = [String : Any]()
         conformDictionary["id"] = id
         conformDictionary["category"] = dictionary[.category]!
-        conformDictionary["latitude"] = location?.latitude ?? "keine Daten verfügbar"
-        conformDictionary["longitude"] = location?.longitude ?? "keine Daten verfügbar"
+        conformDictionary["latitude"] = location?.latitude ?? 0.0
+        conformDictionary["longitude"] = location?.longitude ?? 0.0
+        //dictionary[.location]
         conformDictionary["comment"] = dictionary[.comment]!
         conformDictionary["date"] = dictionary[.date]!
         //conformDictionary["image"] = (dictionary[.image] as! UIImage)
@@ -79,7 +80,7 @@ class PListService {
         }
     }
     
-    static func loadReports() -> [Any] { //hier sollte ich ein Report-Object zurückliefern
+    static func loadReports() -> [Report] { //hier sollte ich ein Report-Object zurückliefern
         let fileManager = FileManager()
         let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
         let reportsPath = URL(fileURLWithPath: documentPath!, isDirectory: true).appendingPathComponent("Reports")
@@ -88,33 +89,50 @@ class PListService {
         if fileManager.fileExists(atPath: pListPath.path) {
             if let listOfAllReports = NSDictionary(contentsOf: pListPath) {
                 
-                for report in listOfAllReports {
-                    print(report.key)
-                    //print(report.value)
-                }
-                var reportsArray = [Any]()
+                var reportsDictionary = [[String: Any]]()
+                var reportsArray = [Report]()
                 
                 for item in listOfAllReports {
-                    reportsArray.append(item.value)
+                    
+                    let entry = item.value as! [String: Any]
+                    reportsDictionary.append(entry)
                 }
-                
+                let report = prepareTableData(dataDict: reportsDictionary)
+                reportsArray.append(report)
                 return reportsArray
-                //return listOfAllReports
             }
             
         }
-        return [Any]()
+        return [Report]()
     }
     
-  /*  func prepareTableData(dataDict: NSDictionary) -> [Any] {
-        var reportsArray = [Any]()
+    private static func prepareTableData(dataDict: [[String: Any]]) -> Report {
+        
+        let report = Report();
+        
         
         for item in dataDict {
-            reportsArray.append(item.value)
+            for key in item.keys {
+                switch key {
+                case "longitude":
+                    report.locationData.longitude = item["longitude"] as! Double
+                case "date":
+                    report.timestamp = item["date"] as? Date
+                case "category":
+                    report.category = item["category"] as? String
+                case "comment":
+                    report.comment = item["comment"] as? String
+                case "latitude":
+                    report.locationData.latitude = item["latitude"] as! Double
+                case "image":
+                    report.image = item["category"] as? UIImage
+                default:
+                    print("No data available")
+                }
+            }
         }
         
-        return reportsArray
+        return report
     }
- */
     
 }
