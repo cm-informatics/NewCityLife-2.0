@@ -11,4 +11,8 @@ import UIKit
 class MyReportsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var labelCategory: UILabel!
+    @IBOutlet weak var labelDate: UILabel!
+    @IBOutlet weak var labelLocation: UILabel!
+    @IBOutlet weak var reportImage: UIImageView!
+    
 }

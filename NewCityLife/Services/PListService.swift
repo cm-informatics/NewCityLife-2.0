@@ -10,6 +10,7 @@ import UIKit
 
 class PListService {
     
+    private static var reportsArray = [Report]()
     private static let fileName = "myReports.plist"
     
     
@@ -97,8 +98,7 @@ class PListService {
                     let entry = item.value as! [String: Any]
                     reportsDictionary.append(entry)
                 }
-                let report = prepareTableData(dataDict: reportsDictionary)
-                reportsArray.append(report)
+                reportsArray = convertDictToReportObject(dataDict: reportsDictionary)
                 return reportsArray
             }
             
@@ -106,7 +106,7 @@ class PListService {
         return [Report]()
     }
     
-    private static func prepareTableData(dataDict: [[String: Any]]) -> Report {
+    private static func convertDictToReportObject(dataDict: [[String: Any]]) -> [Report] {
         
         let report = Report();
         
@@ -125,14 +125,17 @@ class PListService {
                 case "latitude":
                     report.locationData.latitude = item["latitude"] as! Double
                 case "image":
-                    report.image = item["category"] as? UIImage
-                default:
-                    print("No data available")
+                    let imageData = item["image"] as? Data
+                    //print(imageData!)
+                    report.image = UIImage(data: imageData ?? Data())
+                default: break
+                    //print("No data available for key \(key)")
                 }
             }
+            reportsArray.append(report)
         }
         
-        return report
+        return reportsArray
     }
     
 }

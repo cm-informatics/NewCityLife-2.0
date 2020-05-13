@@ -22,7 +22,7 @@ class MyReportsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        reportsArray = PListService.loadReports()
+        //reportsArray = PListService.loadReports()
         //print("Reps: \(myReportsArray)")
         print("Count: \(reportsArray.count)")
         
@@ -44,25 +44,21 @@ class MyReportsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myReportsCell", for: indexPath) as! MyReportsTableViewCell
-
-        //let report = myReportsDictionary.allValues[indexPath.row]
-        //let report = myReportsDictionary.allKeys[indexPath.row]
         
         let report = reportsArray[indexPath.row]
         
         cell.labelCategory.text = report.category
-        //cell.labelCategory.text = report["category"] as? String
+        cell.labelDate.text = "\(report.timestamp ?? Date())"
+        cell.labelLocation.text = "\(report.locationData.latitude)"
+        cell.reportImage.image = report.image
         
-        //print(report["category"] ?? "nil")
-        //cell.labelCategory.text = report["category"] as? String
-        //cell.labelCategory.text = report["category"] as? String
-        //cell.textLabel?.text = report["category"] as? String
         return cell
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         reportsArray = PListService.loadReports()
+        print("Count: \(reportsArray.count)")
         tableView.reloadData()
     }
 
@@ -114,6 +110,7 @@ class MyReportsTableViewController: UITableViewController {
     //MARK: UITableViev Delegate
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
+        return 120
     }
+ 
 }
