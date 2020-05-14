@@ -22,9 +22,10 @@ class CustomButton: UIButton {
         setupButton()
     }
     
-    func setupButton() {
-        layer.cornerRadius = frame.size.height / 2
-        layer.borderWidth = 3
+    private func setupButton() {
+        //layer.cornerRadius = frame.size.height / 2
+        layer.cornerRadius = 15
+        layer.borderWidth = 1
         layer.borderColor = customColor.cgColor
         setTitleColor(.white, for: .normal)
         backgroundColor = customColor

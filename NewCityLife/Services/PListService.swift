@@ -32,10 +32,8 @@ class PListService {
         conformDictionary["category"] = dictionary[.category]!
         conformDictionary["latitude"] = location?.latitude ?? 0.0
         conformDictionary["longitude"] = location?.longitude ?? 0.0
-        //dictionary[.location]
         conformDictionary["comment"] = dictionary[.comment]!
         conformDictionary["date"] = dictionary[.date]!
-        //conformDictionary["image"] = (dictionary[.image] as! UIImage)
         
         let reportImage = dictionary[.image] as! UIImage
         let imageData = reportImage.pngData()
@@ -81,7 +79,7 @@ class PListService {
         }
     }
     
-    static func loadReports() -> [Report] { //hier sollte ich ein Report-Object zurückliefern
+    static func loadReports() -> (keys: [Any], payload: NSDictionary) { //hier sollte ich ein Report-Object zurückliefern
         let fileManager = FileManager()
         let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
         let reportsPath = URL(fileURLWithPath: documentPath!, isDirectory: true).appendingPathComponent("Reports")
@@ -90,26 +88,56 @@ class PListService {
         if fileManager.fileExists(atPath: pListPath.path) {
             if let listOfAllReports = NSDictionary(contentsOf: pListPath) {
                 
-                var reportsDictionary = [[String: Any]]()
-                var reportsArray = [Report]()
+                /*
+                 users.sort {
+                     $0.firstName < $1.firstName
+                 }
+                 */
                 
-                for item in listOfAllReports {
-                    
-                    let entry = item.value as! [String: Any]
-                    reportsDictionary.append(entry)
+                //let keys = listOfAllReports.allKeys
+                
+                /*keys.sorted { (one, two) -> Bool in
+                    let test1 = one as! String
+                    let test2 = two as! String
+                    return test1 < test2
                 }
-                reportsArray = convertDictToReportObject(dataDict: reportsDictionary)
-                return reportsArray
+ */
+                
+                /*var sortedArray = [Any]()
+                
+                for item in listOfAllReports.allValues {
+                    print("Item is: \(item)")
+                    let dict: NSDictionary = item as! NSDictionary
+                    print("Date: \(dict.object(forKey: "date") ?? "nix")")
+                    
+                    sortedArray = listOfAllReports.allValues
+                    
+                    sortedArray.sort { (v1, v2) -> Bool in
+                        
+                        let datum1 = (v1 as! NSDictionary).object(forKey: "Date")
+                        let datum2 = (v2 as! NSDictionary).object(forKey: "Date")
+                        
+                        return (datum1 as! String) < (datum2 as! String)
+                    }
+                    
+                }
+                
+                */
+                /*listOfAllReports.allKeys.sort{
+                    $0.id < $1.id
+                }
+                */
+                //let reportsData = (keys: listOfAllReports.allKeys, payload: listOfAllReports)
+                let reportsData = (keys: listOfAllReports.allKeys, payload: listOfAllReports)
+                return reportsData
             }
             
         }
-        return [Report]()
+        return (keys: [""], payload: NSDictionary())
     }
     
     private static func convertDictToReportObject(dataDict: [[String: Any]]) -> [Report] {
-        
         let report = Report();
-        
         
         for item in dataDict {
             for key in item.keys {
@@ -134,8 +162,6 @@ class PListService {
             }
             reportsArray.append(report)
         }
-        
         return reportsArray
     }
-    
 }

@@ -10,10 +10,7 @@ import UIKit
 
 class MyReportsTableViewController: UITableViewController {
 
-    //var myReportsDictionary = NSDictionary()
-    //var myReportsArray = [[String: Any]]()
-    var reportsArray = [Report]()
-    
+    var reportsData = (keys: [Any](), payload: NSDictionary())
     
     
     override func viewDidLoad() {
@@ -22,12 +19,8 @@ class MyReportsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        //reportsArray = PListService.loadReports()
-        //print("Reps: \(myReportsArray)")
-        print("Count: \(reportsArray.count)")
-        
-        //# TODO: Read the contents of the data stored in reportsArray and display them into the table view
-        //var reportsArray = prepareTableData(dataDict: myReportsDictionary)
+        reportsData = PListService.loadReports()
+        print("Count: \(reportsData.keys.count)")
         
     }
 
@@ -38,28 +31,22 @@ class MyReportsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return reportsArray.count
+        return reportsData.keys.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myReportsCell", for: indexPath) as! MyReportsTableViewCell
         
-        let report = reportsArray[indexPath.row]
+        //let report = reportsArray[indexPath.row]
+        let report = reportsData.payload.object(forKey: reportsData.keys[indexPath.row]) as! NSDictionary
         
-        cell.labelCategory.text = report.category
-        cell.labelDate.text = "\(report.timestamp ?? Date())"
-        cell.labelLocation.text = "\(report.locationData.latitude)"
-        cell.reportImage.image = report.image
+        cell.labelCategory.text = report.object(forKey: "category") as? String
+        cell.labelDate.text = "\(report.object(forKey: "date") ?? "keine Daten")"
+        cell.labelLocation.text = "\(report.object(forKey: "latitude") ?? "keine Daten")"
         
+        cell.reportImage.image = UIImage(data: report.object(forKey: "image") as! Data)
         return cell
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        reportsArray = PListService.loadReports()
-        print("Count: \(reportsArray.count)")
-        tableView.reloadData()
     }
 
     /*
@@ -110,7 +97,7 @@ class MyReportsTableViewController: UITableViewController {
     //MARK: UITableViev Delegate
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return 100
     }
  
 }
