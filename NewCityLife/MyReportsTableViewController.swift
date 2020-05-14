@@ -38,19 +38,12 @@ class MyReportsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myReportsCell", for: indexPath) as! MyReportsTableViewCell
         
-        //let report = reportsArray[indexPath.row]
-        //let report = reportsData.payload.object(forKey: reportsData.keys[indexPath.row]) as! NSDictionary
         let report = reportsData.payload[indexPath.row]
         
-        
         cell.labelCategory.text = report.category
-        cell.labelLocation.text = report.comment
-        /*cell.labelCategory.text = report.object(forKey: "category") as? String
-        cell.labelDate.text = "\(report.object(forKey: "date") ?? "keine Daten")"
-        cell.labelLocation.text = "\(report.object(forKey: "latitude") ?? "keine Daten")"
-        
-        cell.reportImage.image = UIImage(data: report.object(forKey: "image") as! Data)
- */
+        cell.labelLocation.text = "\(report.locationData.longitude), \(report.locationData.latitude)"
+        cell.labelDate.text = "\(report.timestamp.description(with: Locale(identifier: "de_DE")))"
+        cell.reportImage.image = report.image
         return cell
     }
 
@@ -102,7 +95,7 @@ class MyReportsTableViewController: UITableViewController {
     //MARK: UITableViev Delegate
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 110
     }
  
 }

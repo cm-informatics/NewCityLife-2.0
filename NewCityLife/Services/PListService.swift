@@ -10,7 +10,7 @@ import UIKit
 
 class PListService {
     
-    private static var reportsArray = [Report]()
+    //private static var reportsArray = [Report]()
     private static let fileName = "myReports.plist"
     
     
@@ -80,7 +80,7 @@ class PListService {
     }
     
     static func loadReports() -> (keys: [Any], payload: [Report]) { //hier sollte ich ein Report-Object zurückliefern
-        var sortedArray = [Report]()
+        var reportsArray = [Report]()
         let fileManager = FileManager()
         let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
         let reportsPath = URL(fileURLWithPath: documentPath!, isDirectory: true).appendingPathComponent("Reports")
@@ -90,26 +90,17 @@ class PListService {
             if let listOfAllReports = NSDictionary(contentsOf: pListPath) {
                 
                 for item in listOfAllReports.allValues {
-                    print("Item is: \(item)")
-                    let dict = item as! [String: Any]
-                    print("Date: \(dict["date"] ?? "nix")")
-                    
                     let report = convertDictToReportObject(dataDict: (item as! [String: Any]))
                     reportsArray.append(report)
                     
-                    sortedArray = reportsArray
                 }
-                /*reportsArray.sort {
-                    $0.timestamp < $1.timestamp
-                }*/
-                sortedArray.sort {
+                reportsArray.sort {
                     $0.timestamp < $1.timestamp
                 }
             }
             
         }
-        reportsArray = [Report]()
-        return (keys: [""], payload: sortedArray)
+        return (keys: [""], payload: reportsArray)
     }
     
     private static func convertDictToReportObject(dataDict: [String: Any]) -> Report {
