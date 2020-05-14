@@ -10,7 +10,7 @@ import UIKit
 
 class MyReportsTableViewController: UITableViewController {
 
-    var reportsData = (keys: [Any](), payload: NSDictionary())
+    var reportsData = (keys: [Any](), payload: [Report]())
     
     
     override func viewDidLoad() {
@@ -20,7 +20,7 @@ class MyReportsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         reportsData = PListService.loadReports()
-        print("Count: \(reportsData.keys.count)")
+        print("Count: \(reportsData.payload.count)")
         
     }
 
@@ -31,7 +31,7 @@ class MyReportsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return reportsData.keys.count
+        return reportsData.payload.count
     }
 
     
@@ -39,13 +39,18 @@ class MyReportsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myReportsCell", for: indexPath) as! MyReportsTableViewCell
         
         //let report = reportsArray[indexPath.row]
-        let report = reportsData.payload.object(forKey: reportsData.keys[indexPath.row]) as! NSDictionary
+        //let report = reportsData.payload.object(forKey: reportsData.keys[indexPath.row]) as! NSDictionary
+        let report = reportsData.payload[indexPath.row]
         
-        cell.labelCategory.text = report.object(forKey: "category") as? String
+        
+        cell.labelCategory.text = report.category
+        cell.labelLocation.text = report.comment
+        /*cell.labelCategory.text = report.object(forKey: "category") as? String
         cell.labelDate.text = "\(report.object(forKey: "date") ?? "keine Daten")"
         cell.labelLocation.text = "\(report.object(forKey: "latitude") ?? "keine Daten")"
         
         cell.reportImage.image = UIImage(data: report.object(forKey: "image") as! Data)
+ */
         return cell
     }
 

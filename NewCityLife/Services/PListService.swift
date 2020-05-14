@@ -79,7 +79,8 @@ class PListService {
         }
     }
     
-    static func loadReports() -> (keys: [Any], payload: NSDictionary) { //hier sollte ich ein Report-Object zurückliefern
+    static func loadReports() -> (keys: [Any], payload: [Report]) { //hier sollte ich ein Report-Object zurückliefern
+        var sortedArray = [Report]()
         let fileManager = FileManager()
         let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
         let reportsPath = URL(fileURLWithPath: documentPath!, isDirectory: true).appendingPathComponent("Reports")
@@ -88,80 +89,51 @@ class PListService {
         if fileManager.fileExists(atPath: pListPath.path) {
             if let listOfAllReports = NSDictionary(contentsOf: pListPath) {
                 
-                /*
-                 users.sort {
-                     $0.firstName < $1.firstName
-                 }
-                 */
-                
-                //let keys = listOfAllReports.allKeys
-                
-                /*keys.sorted { (one, two) -> Bool in
-                    let test1 = one as! String
-                    let test2 = two as! String
-                    return test1 < test2
-                }
- */
-                
-                /*var sortedArray = [Any]()
-                
                 for item in listOfAllReports.allValues {
                     print("Item is: \(item)")
-                    let dict: NSDictionary = item as! NSDictionary
-                    print("Date: \(dict.object(forKey: "date") ?? "nix")")
+                    let dict = item as! [String: Any]
+                    print("Date: \(dict["date"] ?? "nix")")
                     
-                    sortedArray = listOfAllReports.allValues
+                    let report = convertDictToReportObject(dataDict: (item as! [String: Any]))
+                    reportsArray.append(report)
                     
-                    sortedArray.sort { (v1, v2) -> Bool in
-                        
-                        let datum1 = (v1 as! NSDictionary).object(forKey: "Date")
-                        let datum2 = (v2 as! NSDictionary).object(forKey: "Date")
-                        
-                        return (datum1 as! String) < (datum2 as! String)
-                    }
-                    
+                    sortedArray = reportsArray
                 }
-                
-                */
-                /*listOfAllReports.allKeys.sort{
-                    $0.id < $1.id
+                /*reportsArray.sort {
+                    $0.timestamp < $1.timestamp
+                }*/
+                sortedArray.sort {
+                    $0.timestamp < $1.timestamp
                 }
-                */
-                //let reportsData = (keys: listOfAllReports.allKeys, payload: listOfAllReports)
-                let reportsData = (keys: listOfAllReports.allKeys, payload: listOfAllReports)
-                return reportsData
             }
             
         }
-        return (keys: [""], payload: NSDictionary())
+        reportsArray = [Report]()
+        return (keys: [""], payload: sortedArray)
     }
     
-    private static func convertDictToReportObject(dataDict: [[String: Any]]) -> [Report] {
+    private static func convertDictToReportObject(dataDict: [String: Any]) -> Report {
         let report = Report();
         
         for item in dataDict {
-            for key in item.keys {
-                switch key {
+            switch item.key {
                 case "longitude":
-                    report.locationData.longitude = item["longitude"] as! Double
+                    report.locationData.longitude = item.value as! Double
                 case "date":
-                    report.timestamp = item["date"] as? Date
+                    report.timestamp = item.value as? Date
                 case "category":
-                    report.category = item["category"] as? String
+                    report.category = item.value as? String
                 case "comment":
-                    report.comment = item["comment"] as? String
+                    report.comment = item.value as? String
                 case "latitude":
-                    report.locationData.latitude = item["latitude"] as! Double
+                    report.locationData.latitude = item.value as! Double
                 case "image":
-                    let imageData = item["image"] as? Data
-                    //print(imageData!)
+                    let imageData = item.value as? Data
                     report.image = UIImage(data: imageData ?? Data())
                 default: break
                     //print("No data available for key \(key)")
                 }
-            }
-            reportsArray.append(report)
         }
-        return reportsArray
+        return report
     }
 }
